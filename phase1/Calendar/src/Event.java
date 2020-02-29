@@ -2,8 +2,9 @@ package src;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.io.Serializable;
 
-public class Event {
+public class Event implements Serializable {
     private String name;
     private String description;
     private LocalDateTime startTime;
