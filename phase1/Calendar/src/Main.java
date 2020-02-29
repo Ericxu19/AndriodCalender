@@ -49,10 +49,10 @@ public class Main {
 
         //Tev User Tests
         UserManager userC = new UserManager();
-        userC.createUser("tev", "123");
+        /*userC.createUser("tev", "123");
         userC.createUser("tev2", "1234");
         userC.createUser("tev3", "12345");
-
-
+*/
+        userC.deleteUser("tev");
     }
 }
