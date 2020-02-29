@@ -38,6 +38,7 @@ public class AlertHandler implements Serializable {
                 out.add(a);
             }
         }
+        alerts.removeAll(out);
         return out;
     }
 

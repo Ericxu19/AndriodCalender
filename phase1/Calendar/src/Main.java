@@ -24,7 +24,7 @@ public class Main {
         alertHandler.addAlerts(to_be_alerts);
 
         // use this if working directory is at group_0259
-        File file = new File("phase1/Calendar/Users/alerts_testing.txt");
+        File file = new File("Users/alerts_testing.txt");
 
         // use this if working directory is at Calendar
         //File file = new File("Users/alerts_testing.txt");
@@ -42,8 +42,7 @@ public class Main {
         AlertHandler alertHandler_read = (AlertHandler) objectInputStream.readObject();
         objectInputStream.close();
 
-        Alert shower = alertHandler_read.getAlerts().get(2);
-        System.out.println(shower.getDescription() + " " + shower.getName());
+        System.out.println(alertHandler_read.getAlerts());
         alertHandler_read.raiseAlerts();
         System.out.println(alertHandler_read.getAlerts());
 
