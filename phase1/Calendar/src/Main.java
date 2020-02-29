@@ -44,9 +44,7 @@ public class Main {
 
         Alert shower = alertHandler_read.getAlerts().get(2);
         System.out.println(shower.getDescription() + " " + shower.getName());
-        System.out.println("past or not: " + shower.isPast());
         alertHandler_read.raiseAlerts();
-        System.out.println("past or not: " + shower.isPast());
         System.out.println(alertHandler_read.getAlerts());
 
         //Tev User Tests
