@@ -15,7 +15,11 @@ public class Main {
 
         alertHandler.addAlerts(to_be_alerts);
 
-        File file = new File("phase1/Calendar/Users/alerts_testing.txt");
+        // use this if working directory is at group_0259
+        // File file = new File("phase1/Calendar/Users/alerts_testing.txt");
+
+        // use this if working directory is at Calendar
+        File file = new File("Users/alerts_testing.txt");
 
         //does stuff iff there is no existing file
         file.createNewFile();
