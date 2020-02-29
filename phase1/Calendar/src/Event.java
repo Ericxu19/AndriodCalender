@@ -50,4 +50,8 @@ public class Event implements Serializable {
     public void addAlerts(ArrayList<Triple<String, String, LocalDateTime>> alert_info){
         alertHandler.addAlerts(alert_info);
     }
+
+    public ArrayList<Alert> raiseAlerts(){
+        return alertHandler.raiseAlerts();
+    }
 }

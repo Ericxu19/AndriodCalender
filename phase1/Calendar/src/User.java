@@ -3,8 +3,9 @@ package src;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.time.LocalDateTime;
+import java.util.Observable;
 
-public class User implements Serializable {
+public class User extends Observable implements Serializable {
 
     private String username;
     private String password;
@@ -53,6 +54,10 @@ public class User implements Serializable {
         seriesList.remove(series);
     }
 
+    public void addEventToSeries(Event event, Series series){
+        seriesList.get(seriesList.indexOf(series)).addEvent(event);
+    }
+
     public ArrayList<Series> getSeries() {
         return seriesList;
     }
@@ -69,5 +74,22 @@ public class User implements Serializable {
 
     public ArrayList<Memo> getMemos() {
         return memosList;
+    }
+
+    public void addAlertToEvent(Event event, Triple<String, String, LocalDateTime> t){
+        eventsList.get(eventsList.indexOf(event)).addAlert(t);
+    }
+
+    public void addAlertsToEvent(Event event, ArrayList<Triple<String, String, LocalDateTime>> t){
+        eventsList.get(eventsList.indexOf(event)).addAlerts(t);
+    }
+
+    public ArrayList<Alert> raiseAllAlerts(){
+        ArrayList<Alert> list = new ArrayList<Alert>();
+        for(int i = 0; i < eventsList.size(); i++){
+            Event event = eventsList.get(i);
+            list.addAll(event.raiseAlerts());
+        }
+        return list;
     }
 }
