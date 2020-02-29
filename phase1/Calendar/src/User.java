@@ -22,6 +22,12 @@ public class User extends Observable implements Serializable {
         this.memosList = new ArrayList<Memo>();
     }
 
+    public void signalChanges() {
+        setChanged();
+        if (hasChanged()) notifyObservers();
+        clearChanged();
+    }
+
     public String getUsername() {
         return username;
     }
@@ -32,14 +38,17 @@ public class User extends Observable implements Serializable {
 
     public void addEvent(Event event) {
         eventsList.add(event);
+        signalChanges();
     }
 
     public void removeEvent(Event event) {
         eventsList.remove(event);
+        signalChanges();
     }
 
     public void createEvent(String name, String description, LocalDateTime startTime, LocalDateTime endTime){
         eventsList.add(new Event(name, description, startTime, endTime));
+        signalChanges();
     }
 
     public ArrayList<Event> getEvents() {
@@ -48,14 +57,17 @@ public class User extends Observable implements Serializable {
 
     public void addSeries(Series series) {
         seriesList.add(series);
+        signalChanges();
     }
 
     public void removeSeries(Series series) {
         seriesList.remove(series);
+        signalChanges();
     }
 
     public void addEventToSeries(Event event, Series series){
         seriesList.get(seriesList.indexOf(series)).addEvent(event);
+        signalChanges();
     }
 
     public ArrayList<Series> getSeries() {
@@ -64,13 +76,18 @@ public class User extends Observable implements Serializable {
 
     public void addMemo(Memo memo) {
         memosList.add(memo);
+        signalChanges();
     }
 
     public void removeMemo(Memo memo) {
         memosList.remove(memo);
+        signalChanges();
     }
 
-    public void createMemo(String description) { memosList.add(new Memo(description)); }
+    public void createMemo(String description) {
+        memosList.add(new Memo(description));
+        signalChanges();
+    }
 
     public ArrayList<Memo> getMemos() {
         return memosList;
@@ -78,10 +95,12 @@ public class User extends Observable implements Serializable {
 
     public void addAlertToEvent(Event event, Triple<String, String, LocalDateTime> t){
         eventsList.get(eventsList.indexOf(event)).addAlert(t);
+        signalChanges();
     }
 
     public void addAlertsToEvent(Event event, ArrayList<Triple<String, String, LocalDateTime>> t){
         eventsList.get(eventsList.indexOf(event)).addAlerts(t);
+        signalChanges();
     }
 
     public ArrayList<Alert> raiseAllAlerts(){
@@ -90,6 +109,7 @@ public class User extends Observable implements Serializable {
             Event event = eventsList.get(i);
             list.addAll(event.raiseAlerts());
         }
+        signalChanges();
         return list;
     }
 }
