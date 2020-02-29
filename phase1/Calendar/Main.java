@@ -6,16 +6,18 @@ public class Main {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         AlertHandler alertHandler = new AlertHandler();
 
-        alertHandler.addAlert(new Triple("use sink", "clean dishes", LocalDateTime.now()));
+        alertHandler.addAlert(new Triple<>("use sink", "clean dishes", LocalDateTime.now()));
 
-        ArrayList<Triple<String,String, LocalDateTime>> to_be_alerts = new ArrayList<Triple<String,String, LocalDateTime>>();
-        to_be_alerts.add(new Triple<String,String, LocalDateTime>("tomorrow", "clean room", LocalDateTime.now().plusDays(1)));
-        to_be_alerts.add(new Triple<String,String, LocalDateTime>("take a shower now", "clean body", LocalDateTime.now()));
-        to_be_alerts.add(new Triple<String,String, LocalDateTime>("eat peanuts soon", "peanuts", LocalDateTime.now().plusMinutes(30)));
+        ArrayList<Triple<String,String, LocalDateTime>> to_be_alerts = new ArrayList<>();
+        to_be_alerts.add(new Triple<>("tomorrow", "clean room", LocalDateTime.now().plusDays(1)));
+        to_be_alerts.add(new Triple<>("take a shower now", "clean body", LocalDateTime.now()));
+        to_be_alerts.add(new Triple<>("eat peanuts soon", "peanuts", LocalDateTime.now().plusMinutes(30)));
 
         alertHandler.addAlerts(to_be_alerts);
 
         File file = new File("phase1/Calendar/Users/alerts_testing.txt");
+
+        //does stuff iff there is no existing file
         file.createNewFile();
 
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(file));
