@@ -17,8 +17,36 @@ public class Event {
         this.description = description;
         this.startTime = startTime;
         this.endTime = endTime;
-        this.past = False;
+        this.past = false;
         this.attachments = new ArrayList<Attachment>();
         this.alertHandler = new AlertHandler();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public LocalDateTime getStartTime() {
+        return startTime;
+    }
+
+    public LocalDateTime getEndTime() {
+        return endTime;
+    }
+
+    public ArrayList<Attachment> getAttachments() {
+        return attachments;
+    }
+
+    public void addAlert(Triple<String, String, LocalDateTime> t){
+        alertHandler.addAlert(t);
+    }
+
+    public void addAlerts(ArrayList<Triple<String, String, LocalDateTime>> alert_info){
+        alertHandler.addAlerts(alert_info);
     }
 }
