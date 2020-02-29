@@ -1,9 +1,8 @@
 package src;
 
-import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.io.File;
+import java.time.LocalDateTime;
 
 public class User implements Serializable {
 
@@ -38,6 +37,10 @@ public class User implements Serializable {
         eventsList.remove(event);
     }
 
+    public void createEvent(String name, String description, LocalDateTime startTime, LocalDateTime endTime){
+        eventsList.add(new Event(name, description, startTime, endTime));
+    }
+
     public ArrayList<Event> getEvents() {
         return eventsList;
     }
@@ -61,6 +64,8 @@ public class User implements Serializable {
     public void removeMemo(Memo memo) {
         memosList.remove(memo);
     }
+
+    public void createMemo(String description) { memosList.add(new Memo(description)); }
 
     public ArrayList<Memo> getMemos() {
         return memosList;
