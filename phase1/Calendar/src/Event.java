@@ -12,5 +12,13 @@ public class Event {
     private ArrayList<Attachment> attachments;
     private AlertHandler alertHandler;
 
-    public Event(String name, String description, LocalDateTime startTime, LocalDateTime endTime)
+    public Event(String name, String description, LocalDateTime startTime, LocalDateTime endTime){
+        this.name = name;
+        this.description = description;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.past = False;
+        this.attachments = new ArrayList<Attachment>();
+        this.alertHandler = new AlertHandler();
+    }
 }

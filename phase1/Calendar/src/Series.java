@@ -1,7 +1,10 @@
+package src;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.DayOfWeek;
 
 public class Series implements Serializable {
@@ -12,31 +15,31 @@ public class Series implements Serializable {
 
     public Series(String name, String description){
         this.name = name;
-        this.description = description
+        this.description = description;
         this.events = new ArrayList<Event>();
     }
 
-    public Series(String name, String description, LocalDateTime startDateTime, int dayGap, int numEvents){
+    public Series(String name, String description, LocalDateTime startDateTime, LocalTime endTime, int dayGap, int numEvents){
         this.name = name;
         this.description = description;
         this.events = new ArrayList<Event>();
 
         for(int i = 0; i < numEvents; i++){
-            this.events.add(new Event(name, description, startDateTime.plusDays(i * dayGap)));
+            this.events.add(new Event(name, description, startDateTime.plusDays(i * dayGap), startDateTime.plusDays(i * dayGap).withHour(endTime.getHour()).withMinute(endTime.getMinute())));
         }
     }
 
-    public Series(String name, String description, LocalDateTime startDateTime, HashSet<DayOfWeek> days, int numEvents){
+    public Series(String name, String description, LocalDateTime startDateTime, LocalTime endTime, HashSet<DayOfWeek> days, int numEvents){
         this.name = name;
         this.description = description;
         this.events = new ArrayList<Event>();
 
         while(numEvents > 0){
             if(days.contains(startDateTime.getDayOfWeek())){
-                this.events.add(new Event(name, description, startDateTime));
+                this.events.add(new Event(name, description, startDateTime, startDateTime.withHour(endTime.getHour()).withMinute(endTime.getMinute())));
                 numEvents -= 1;
             }
-            startDateTime = startDateTime.plusDays(1)
+            startDateTime = startDateTime.plusDays(1);
         }
     }
 

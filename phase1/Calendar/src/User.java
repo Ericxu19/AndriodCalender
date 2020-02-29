@@ -1,3 +1,5 @@
+package src;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -15,7 +17,7 @@ public class User implements Serializable {
         this.password = password;
         this.eventsList = new ArrayList<Event>();
         this.seriesList = new ArrayList<Series>();
-        this.memosList = new ArrayList<Memos>();
+        this.memosList = new ArrayList<Memo>();
     }
 
     public String getUsername() {
