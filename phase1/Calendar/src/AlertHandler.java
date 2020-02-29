@@ -1,4 +1,6 @@
+
 package src;
+
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -16,7 +18,7 @@ public class AlertHandler implements Serializable {
         return alerts;
     }
 
-    // takes a Triple with (description, name, datetime) format
+    // takes a src.Triple with (description, name, datetime) format
     public void addAlert(Triple<String, String, LocalDateTime> t) {
         alerts.add(new Alert(t.x, t.y, t.z));
     }

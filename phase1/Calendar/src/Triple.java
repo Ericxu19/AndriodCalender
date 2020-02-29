@@ -1,3 +1,5 @@
+package src;
+
 public class Triple<X, Y, Z> {
     public final X x;
     public final Y y;
