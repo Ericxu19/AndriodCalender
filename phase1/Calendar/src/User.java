@@ -1,7 +1,9 @@
 package src;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.io.File;
 
 public class User implements Serializable {
 

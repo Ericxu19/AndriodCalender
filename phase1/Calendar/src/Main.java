@@ -24,10 +24,10 @@ public class Main {
         alertHandler.addAlerts(to_be_alerts);
 
         // use this if working directory is at group_0259
-        // File file = new File("phase1/Calendar/Users/alerts_testing.txt");
+        File file = new File("phase1/Calendar/Users/alerts_testing.txt");
 
         // use this if working directory is at Calendar
-        File file = new File("Users/alerts_testing.txt");
+        //File file = new File("Users/alerts_testing.txt");
 
         //does stuff iff there is no existing file
         file.createNewFile();
@@ -48,5 +48,13 @@ public class Main {
         alertHandler_read.raiseAlerts();
         System.out.println("past or not: " + shower.isPast());
         System.out.println(alertHandler_read.getAlerts());
+
+        //Tev User Tests
+        UserManager userC = new UserManager();
+        userC.createUser("tev", "123");
+        userC.createUser("tev2", "1234");
+        userC.createUser("tev3", "12345");
+
+
     }
 }

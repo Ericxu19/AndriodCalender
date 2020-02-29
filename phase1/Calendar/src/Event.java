@@ -17,7 +17,7 @@ public class Event {
         this.description = description;
         this.startTime = startTime;
         this.endTime = endTime;
-        this.past = False;
+        this.past = false;
         this.attachments = new ArrayList<Attachment>();
         this.alertHandler = new AlertHandler();
     }
