@@ -8,7 +8,7 @@ public class MemoSearcher {
     public List<Event> search(List<Event> events, Memo memo ){
         List<Event> lst = new ArrayList<Event>();
         for (Event event : events) {
-            if (event.getMemo() == memo){
+            if (event.getAttachment().contains(memo)){
                 lst.add(event);
             }
         }
