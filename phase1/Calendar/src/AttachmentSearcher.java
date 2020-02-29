@@ -8,7 +8,7 @@ public class AttachmentSearcher {
     public List<Event> search(List<Event> events, Attachment attachment ){
         List<Event> lst = new ArrayList<Event>();
         for (Event event : events) {
-            if (event.getAttachment().contains(attachment)){
+            if (event.getAttachments().contains(attachment)){
                 lst.add(event);
             }
         }

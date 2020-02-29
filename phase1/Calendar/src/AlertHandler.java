@@ -36,7 +36,6 @@ public class AlertHandler implements Serializable {
         for (Alert a: alerts) {
             if (now.isAfter(a.getTime())) {
                 out.add(a);
-                a.setPast();
             }
         }
         return out;
