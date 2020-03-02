@@ -3,7 +3,6 @@ package src;
 import java.io.*;
 
 public class LoginValidator {
-    
     public User validate(String username, String password){
         File userFile = new File("phase1/Calendar/Users/" + username + ".txt");
         User user = instantiateUser(userFile);
