@@ -9,22 +9,18 @@ public class UserManager {
 
     UserManager(){}
     public User createUser(String username, String password) throws IOException {
-        User tempUser = new User(username, password);
-        createFile(username, password);
-        return tempUser;
+        User user = new User(username, password);
+        createUserFile(user);
+        return user;
     }
-    public boolean createFile(String username, String password) throws IOException {
-        File userFile = new File("phase1/Calendar/Users/UserInfo/"+username+".txt");
+    public boolean createUserFile(User user) throws IOException {
+        File userFile = new File("phase1/Calendar/Users/UserInfo/"+user.getUsername()+".txt");
         boolean success = userFile.createNewFile();
         if(success){
-            OutputStream os = new FileOutputStream(userFile);
-            byte[] pwBytes = password.getBytes();
-            os.write(pwBytes);
-            return true;
+            UserWriter writer = new UserWriter();
+            writer.writeUser(user);
         }
-        else{
-            return false;
-        }
+        return success;
     }
     public boolean deleteUser(String username) throws IOException {
         File userFile = new File("phase1/Calendar/Users/UserInfo/"+username+".txt");
