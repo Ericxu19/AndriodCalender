@@ -16,27 +16,12 @@ public class UserWriter implements Observer {
 
         try {
             file.createNewFile();
-        } catch (IOException e) {
-            //TODO
-            e.printStackTrace();
-        }
-
-        ObjectOutputStream objectOutputStream = null;
-        try {
-            objectOutputStream = new ObjectOutputStream(new FileOutputStream(file));
-        } catch (IOException e) {
-            //TODO
-            e.printStackTrace();
-        }
-
-        try {
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(file));
             objectOutputStream.writeObject(user);
             objectOutputStream.close();
         } catch (IOException e) {
             //TODO
             e.printStackTrace();
         }
-
-
     }
 }
