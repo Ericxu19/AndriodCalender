@@ -12,7 +12,7 @@ public class UserWriter implements Observer {
     }
 
     public void writeUser(User user){
-        File file = new File("phase1/Calendar/Users/" + user.getUsername() + ".txt");
+        File file = new File("Users/UserInfo/" + user.getUsername() + ".txt");
 
         try {
             file.createNewFile();

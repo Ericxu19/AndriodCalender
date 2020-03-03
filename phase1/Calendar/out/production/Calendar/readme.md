@@ -8,7 +8,7 @@ notable things:
 - in order for code to run, your working directory needs to be at the Calendar file level because of path names (please tell the group if there's a better way)
 
 
-UserInfo Section (Tev):
+Users.UserInfo Section (Tev):
 - File Name is Username
 - Line 1: Password
 - Line (Others): Events Serialized
