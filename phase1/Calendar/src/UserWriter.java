@@ -12,7 +12,7 @@ public class UserWriter implements Observer {
     }
 
     public void writeUser(User user){
-        File file = new File("Users/UserInfo/" + user.getUsername() + ".txt");
+        File file = new File("Users/" + user.getUsername().toLowerCase() + ".txt");
 
         try {
             file.createNewFile();

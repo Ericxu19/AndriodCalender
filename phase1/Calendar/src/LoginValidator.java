@@ -4,9 +4,12 @@ import java.io.*;
 
 public class LoginValidator {
     public User validate(String username, String password){
+        username = username.toLowerCase();
         File userFile = new File("phase1/Calendar/Users/" + username + ".txt");
+        boolean exists = userFile.exists();
+        if (!exists) return null;
         User user = instantiateUser(userFile);
-        if(user.getPassword() == password){
+        if(user.getPassword().equals(password)){
             return user;
         }
         return null;
@@ -25,11 +28,11 @@ public class LoginValidator {
             in.close();
             file.close();
         } catch (FileNotFoundException e){
-            //TODO
+            return null;
         } catch (IOException e){
-            //TODO
+            return null;
         } catch (ClassNotFoundException e){
-            //TODO
+            return null;
         }
         return user;
     }
