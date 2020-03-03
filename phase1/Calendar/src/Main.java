@@ -32,7 +32,7 @@ public class Main {
         //does stuff iff there is no existing file
         file.createNewFile();
 
-        ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(file));
+        ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(file, false));
 
         objectOutputStream.writeObject(alertHandler);
         objectOutputStream.close();

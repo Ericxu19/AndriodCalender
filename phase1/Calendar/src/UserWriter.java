@@ -16,7 +16,7 @@ public class UserWriter implements Observer {
 
         try {
             file.createNewFile();
-            ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(file));
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(file, false));
             objectOutputStream.writeObject(user);
             objectOutputStream.close();
         } catch (IOException e) {
