@@ -14,7 +14,7 @@ public class UserManager {
         return user;
     }
     public boolean createUserFile(User user) throws IOException {
-        File userFile = new File("Users/UserInfo/"+user.getUsername()+".txt");
+        File userFile = new File("Users/"+user.getUsername()+".txt");
         boolean success = userFile.createNewFile();
         if(success){
             UserWriter writer = new UserWriter();
@@ -23,7 +23,7 @@ public class UserManager {
         return success;
     }
     public boolean deleteUser(String username) throws IOException {
-        File userFile = new File("Users/UserInfo/"+username+".txt");
+        File userFile = new File("Users/"+username+".txt");
         return userFile.delete();
     }
 }
