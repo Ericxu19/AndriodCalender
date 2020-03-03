@@ -46,7 +46,7 @@ public class User extends Observable implements Serializable {
         signalChanges();
     }
 
-    public void createEvent(String name, String description, LocalDateTime startTime, LocalDateTime endTime){
+    public void createEvent(String name, String description, LocalDateTime startTime, LocalDateTime endTime) {
         eventsList.add(new Event(name, description, startTime, endTime));
         signalChanges();
     }
@@ -65,7 +65,7 @@ public class User extends Observable implements Serializable {
         signalChanges();
     }
 
-    public void addEventToSeries(Event event, Series series){
+    public void addEventToSeries(Event event, Series series) {
         seriesList.get(seriesList.indexOf(series)).addEvent(event);
         signalChanges();
     }
@@ -93,19 +93,19 @@ public class User extends Observable implements Serializable {
         return memosList;
     }
 
-    public void addAlertToEvent(Event event, Triple<String, String, LocalDateTime> t){
+    public void addAlertToEvent(Event event, Triple<String, String, LocalDateTime> t) {
         eventsList.get(eventsList.indexOf(event)).addAlert(t);
         signalChanges();
     }
 
-    public void addAlertsToEvent(Event event, ArrayList<Triple<String, String, LocalDateTime>> t){
+    public void addAlertsToEvent(Event event, ArrayList<Triple<String, String, LocalDateTime>> t) {
         eventsList.get(eventsList.indexOf(event)).addAlerts(t);
         signalChanges();
     }
 
-    public ArrayList<Alert> raiseAllAlerts(){
+    public ArrayList<Alert> raiseAllAlerts() {
         ArrayList<Alert> list = new ArrayList<Alert>();
-        for(int i = 0; i < eventsList.size(); i++){
+        for (int i = 0; i < eventsList.size(); i++) {
             Event event = eventsList.get(i);
             list.addAll(event.raiseAlerts());
         }

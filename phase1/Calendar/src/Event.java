@@ -13,7 +13,7 @@ public class Event implements Serializable {
     private ArrayList<Attachment> attachments;
     private AlertHandler alertHandler;
 
-    public Event(String name, String description, LocalDateTime startTime, LocalDateTime endTime){
+    public Event(String name, String description, LocalDateTime startTime, LocalDateTime endTime) {
         this.name = name;
         this.description = description;
         this.startTime = startTime;
@@ -43,15 +43,15 @@ public class Event implements Serializable {
         return attachments;
     }
 
-    public void addAlert(Triple<String, String, LocalDateTime> t){
+    public void addAlert(Triple<String, String, LocalDateTime> t) {
         alertHandler.addAlert(t);
     }
 
-    public void addAlerts(ArrayList<Triple<String, String, LocalDateTime>> alert_info){
+    public void addAlerts(ArrayList<Triple<String, String, LocalDateTime>> alert_info) {
         alertHandler.addAlerts(alert_info);
     }
 
-    public ArrayList<Alert> raiseAlerts(){
+    public ArrayList<Alert> raiseAlerts() {
         return alertHandler.raiseAlerts();
     }
 }

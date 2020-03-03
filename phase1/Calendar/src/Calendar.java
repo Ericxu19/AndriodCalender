@@ -10,39 +10,37 @@ public class Calendar {
     public void run() throws IOException {
         int choice = 0;
         Scanner sc = new Scanner(System.in);
-        while(currentUser == null){
+        while (currentUser == null) {
             System.out.println("Select an option:");
             System.out.println("1. Login");
             System.out.println("2. Register");
             System.out.println("3. Exit");
             choice = Integer.parseInt(sc.nextLine());
 
-            if(choice == 1){
+            if (choice == 1) {
                 System.out.println("Enter your username:");
-                String username = sc.next();
-                if(currentUser == null){
-                    System.out.println("The specified user does not exist.");
+                String username = sc.nextLine().split(" ")[0];
+                System.out.println("Enter your password:");
+                String password = sc.nextLine();
+                LoginValidator val = new LoginValidator();
+                currentUser = val.validate(username, password);
+                if (currentUser == null) {
+                    System.out.println("The specified user does not exists, or your credentials are incorrect.");
                 } else {
-                    System.out.println("Enter your password:");
-                    String password = sc.nextLine();
-                    LoginValidator val = new LoginValidator();
-                    currentUser = val.validate(username, password);
-                    if (currentUser == null) {
-                        System.out.println("Your credentials are incorrect.");
-                    }
+                    System.out.println("Login successful!");
                 }
-            }
-            else if(choice == 2){
+
+            } else if (choice == 2) {
                 System.out.println("Enter your desired username:");
                 String username = sc.nextLine();
-                if(username.contains(" ")){
+                if (username.contains(" ")) {
                     System.out.println("Your username cannot contain spaces.");
                 } else {
                     System.out.println("Enter your desired password:");
                     String password = sc.nextLine();
                     UserManager manager = new UserManager();
                     Object[] res = manager.createUser(username, password);
-                    if((boolean) res[1] == false){
+                    if ((boolean) res[1] == false) {
                         System.out.println("This username is already in use.");
                     } else {
                         currentUser = (User) res[0];
@@ -53,7 +51,7 @@ public class Calendar {
                 System.exit(0);
             }
         }
-        while(true){
+        while (true) {
             //TODO program logic
         }
     }

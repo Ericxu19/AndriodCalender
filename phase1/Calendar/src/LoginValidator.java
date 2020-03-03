@@ -3,13 +3,13 @@ package src;
 import java.io.*;
 
 public class LoginValidator {
-    public User validate(String username, String password){
+    public User validate(String username, String password) {
         username = username.toLowerCase();
-        File userFile = new File("phase1/Calendar/Users/" + username + ".txt");
+        File userFile = new File("Users/" + username + ".txt");
         boolean exists = userFile.exists();
         if (!exists) return null;
         User user = instantiateUser(userFile);
-        if(user.getPassword().equals(password)){
+        if (user.getPassword().equals(password)) {
             return user;
         }
         return null;
@@ -27,11 +27,11 @@ public class LoginValidator {
 
             in.close();
             file.close();
-        } catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             return null;
-        } catch (IOException e){
+        } catch (IOException e) {
             return null;
-        } catch (ClassNotFoundException e){
+        } catch (ClassNotFoundException e) {
             return null;
         }
         return user;
