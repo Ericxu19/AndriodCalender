@@ -25,7 +25,7 @@ public class AlertHandler implements Serializable {
 
     // takes a list of Triples with (description, name, datetime) format
     public void addAlerts(ArrayList<Triple<String, String, LocalDateTime>> alert_info) {
-        for (Triple<String, String, LocalDateTime> t: alert_info) {
+        for (Triple<String, String, LocalDateTime> t : alert_info) {
             alerts.add(new Alert(t.x, t.y, t.z));
         }
     }
@@ -33,7 +33,7 @@ public class AlertHandler implements Serializable {
     public ArrayList<Alert> raiseAlerts() {
         ArrayList<Alert> out = new ArrayList<>();
         LocalDateTime now = LocalDateTime.now();
-        for (Alert a: alerts) {
+        for (Alert a : alerts) {
             if (now.isAfter(a.getTime())) {
                 out.add(a);
             }

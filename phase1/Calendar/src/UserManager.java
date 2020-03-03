@@ -7,7 +7,9 @@ import java.io.OutputStream;
 
 public class UserManager {
 
-    UserManager(){}
+    UserManager() {
+    }
+
     public Object[] createUser(String username, String password) throws IOException {
         User user = new User(username, password);
         Object[] results = new Object[2];
@@ -15,18 +17,20 @@ public class UserManager {
         results[1] = createUserFile(user);
         return results;
     }
+
     public boolean createUserFile(User user) throws IOException {
-        File userFile = new File("Users/"+user.getUsername().toLowerCase()+".txt");
+        File userFile = new File("Users/" + user.getUsername().toLowerCase() + ".txt");
         boolean success = userFile.createNewFile();
-        if(success){
+        if (success) {
             UserWriter writer = new UserWriter();
             writer.writeUser(user);
         }
         return success;
     }
+
     public boolean deleteUser(String username) throws IOException {
         username = username.toLowerCase();
-        File userFile = new File("Users/"+username+".txt");
+        File userFile = new File("Users/" + username + ".txt");
         return userFile.delete();
     }
 }

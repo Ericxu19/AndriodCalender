@@ -6,12 +6,12 @@ import java.io.*;
 
 public class UserWriter implements Observer {
     @Override
-    public void update(Observable o, Object arg){
+    public void update(Observable o, Object arg) {
         User user = (User) o;
         writeUser(user);
     }
 
-    public void writeUser(User user){
+    public void writeUser(User user) {
         File file = new File("Users/" + user.getUsername().toLowerCase() + ".txt");
 
         try {

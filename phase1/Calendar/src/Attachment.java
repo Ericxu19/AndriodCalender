@@ -4,7 +4,8 @@ public abstract class Attachment {
     // An attachment for the events
 
     private String description;
-    public String getDescription(){
+
+    public String getDescription() {
         return this.description;
     }
 
