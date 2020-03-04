@@ -30,9 +30,8 @@ public class AlertHandler implements Serializable {
         }
     }
 
-    public ArrayList<Alert> raiseAlerts() {
+    public ArrayList<Alert> raiseAlerts(LocalDateTime now) {
         ArrayList<Alert> out = new ArrayList<>();
-        LocalDateTime now = LocalDateTime.now();
         for (Alert a : alerts) {
             if (now.isAfter(a.getTime())) {
                 out.add(a);

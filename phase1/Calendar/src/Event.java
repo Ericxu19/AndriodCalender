@@ -51,7 +51,7 @@ public class Event implements Serializable {
         alertHandler.addAlerts(alert_info);
     }
 
-    public ArrayList<Alert> raiseAlerts() {
-        return alertHandler.raiseAlerts();
+    public ArrayList<Alert> raiseAlerts(LocalDateTime now) {
+        return alertHandler.raiseAlerts(now);
     }
 }

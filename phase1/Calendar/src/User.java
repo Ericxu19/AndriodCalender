@@ -103,11 +103,11 @@ public class User extends Observable implements Serializable {
         signalChanges();
     }
 
-    public ArrayList<Alert> raiseAllAlerts() {
+    public ArrayList<Alert> raiseAllAlerts(LocalDateTime now) {
         ArrayList<Alert> list = new ArrayList<Alert>();
         for (int i = 0; i < eventsList.size(); i++) {
             Event event = eventsList.get(i);
-            list.addAll(event.raiseAlerts());
+            list.addAll(event.raiseAlerts(now));
         }
         signalChanges();
         return list;
