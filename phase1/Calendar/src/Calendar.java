@@ -54,6 +54,8 @@ public class Calendar {
         }
         System.out.println("Welcome, " + currentUser.getUsername() + "!");
         currentTime = LocalDateTime.now();
+        UserWriter writer = new UserWriter();
+        currentUser.addObserver(writer);
         while (active) {
             //TODO program logic
             System.out.println("Dashboard Options: \n 1. Exit");
