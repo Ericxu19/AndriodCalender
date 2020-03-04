@@ -1,11 +1,13 @@
 package src;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class Calendar {
 
     private User currentUser = null;
+    private LocalDateTime currentTime;
 
     public void run() throws IOException {
         int choice = 0;
@@ -51,6 +53,8 @@ public class Calendar {
                 System.exit(0);
             }
         }
+        System.out.println("Welcome, " + currentUser.getUsername() + "!");
+        currentTime = LocalDateTime.now();
         while (true) {
             //TODO program logic
         }
