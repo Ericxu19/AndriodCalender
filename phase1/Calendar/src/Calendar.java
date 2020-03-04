@@ -8,15 +8,12 @@ public class Calendar {
 
     private User currentUser = null;
     private LocalDateTime currentTime;
-
+    private boolean active = false;
     public void run() throws IOException {
         int choice = 0;
         Scanner sc = new Scanner(System.in);
         while (currentUser == null) {
-            System.out.println("Select an option:");
-            System.out.println("1. Login");
-            System.out.println("2. Register");
-            System.out.println("3. Exit");
+            System.out.println("Select an option: \n 1. Login \n 2. Register \n 3. Exit");
             choice = Integer.parseInt(sc.nextLine());
 
             if (choice == 1) {
@@ -30,6 +27,7 @@ public class Calendar {
                     System.out.println("The specified user does not exists, or your credentials are incorrect.");
                 } else {
                     System.out.println("Login successful!");
+                    active = true;
                 }
 
             } else if (choice == 2) {
@@ -50,13 +48,20 @@ public class Calendar {
                     }
                 }
             } else {
+                sc.close();
                 System.exit(0);
             }
         }
         System.out.println("Welcome, " + currentUser.getUsername() + "!");
         currentTime = LocalDateTime.now();
-        while (true) {
+        while (active) {
             //TODO program logic
+            System.out.println("Dashboard Options: \n 1. Exit");
+            Scanner sc2 = new Scanner(System.in);
+            if(sc2.next().equals("1")){
+                System.exit(0);
+            }
+
         }
     }
 
