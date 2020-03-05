@@ -22,6 +22,14 @@ public class StringToDateTimeConverter {
         return LocalTime.of(startTime[0], startTime[1], startTime[2]);
     }
 
+    public LocalDateTime dateOnly(String[] tokens){
+        int[] date = new int[3];
+        for (int i = 0; i < tokens.length; i++) {
+            date[i] = Integer.parseInt(tokens[i]);
+        }
+        return LocalDateTime.of(date[0], date[1], date[2], 0, 0, 0);
+    }
+
     public ArrayList<DayOfWeek> toDayOfWeek(String[] tokens){
         ArrayList<DayOfWeek> list = new ArrayList<>();
         for(String day:tokens){
