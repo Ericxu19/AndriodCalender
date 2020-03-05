@@ -28,11 +28,11 @@ public class LoginValidator {
             in.close();
             file.close();
         } catch (FileNotFoundException e) {
-            return null;
-        } catch (IOException e) {
-            return null;
-        } catch (ClassNotFoundException e) {
-            return null;
+            e.printStackTrace();
+            System.out.println("Cannot find file");
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+            System.out.println("Deserialization unsuccessful");
         }
         return user;
     }
