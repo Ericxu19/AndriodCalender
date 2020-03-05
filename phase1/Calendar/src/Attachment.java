@@ -1,6 +1,8 @@
 package src;
 
-public abstract class Attachment {
+import java.io.Serializable;
+
+public abstract class Attachment implements Serializable {
     // An attachment for the events
 
     private String description;

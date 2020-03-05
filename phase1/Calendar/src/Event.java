@@ -9,8 +9,8 @@ public class Event implements Serializable {
     private String description;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
-    private boolean past;
     private ArrayList<Attachment> attachments;
+    private Memo memo;
     private AlertHandler alertHandler;
 
     public Event(String name, String description, LocalDateTime startTime, LocalDateTime endTime) {
@@ -18,9 +18,9 @@ public class Event implements Serializable {
         this.description = description;
         this.startTime = startTime;
         this.endTime = endTime;
-        this.past = false;
         this.attachments = new ArrayList<Attachment>();
         this.alertHandler = new AlertHandler();
+        this.memo = null;
     }
 
     public String getName() {
@@ -39,8 +39,24 @@ public class Event implements Serializable {
         return endTime;
     }
 
+    public void addAttachment(Attachment att){
+        attachments.add(att);
+    }
+
+    public void removeAttachment(Attachment att){
+        attachments.remove(att);
+    }
+
     public ArrayList<Attachment> getAttachments() {
         return attachments;
+    }
+
+    public Memo getMemo() {
+        return memo;
+    }
+
+    public void setMemo(Memo newMemo){
+        memo = newMemo;
     }
 
     public void addAlert(Triple<String, String, LocalDateTime> t) {

@@ -2,7 +2,6 @@ package src;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.DayOfWeek;
@@ -29,7 +28,7 @@ public class Series implements Serializable {
         }
     }
 
-    public Series(String name, String description, LocalDateTime startDateTime, LocalTime endTime, HashSet<DayOfWeek> days, int numEvents) {
+    public Series(String name, String description, LocalDateTime startDateTime, LocalTime endTime, ArrayList<DayOfWeek> days, int numEvents) {
         this.name = name;
         this.description = description;
         this.events = new ArrayList<Event>();

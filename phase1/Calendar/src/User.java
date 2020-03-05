@@ -55,6 +55,26 @@ public class User extends Observable implements Serializable {
         return eventsList;
     }
 
+    public void addTagToEvent(Event event, Tag att){
+        eventsList.get(eventsList.indexOf(event)).addAttachment(att);
+        signalChanges();
+    }
+
+    public void removeTagFromEvent(Event event, Tag att){
+        eventsList.get(eventsList.indexOf(event)).removeAttachment(att);
+        signalChanges();
+    }
+
+    public void addMemoToEvent(Event event, Memo memo){
+        eventsList.get(eventsList.indexOf(event)).setMemo(memo);
+        signalChanges();
+    }
+
+    public void removeMemoFromEvent(Event event){
+        eventsList.get(eventsList.indexOf(event)).setMemo(null);
+        signalChanges();
+    }
+
     public void addSeries(Series series) {
         seriesList.add(series);
         signalChanges();
@@ -84,8 +104,8 @@ public class User extends Observable implements Serializable {
         signalChanges();
     }
 
-    public void createMemo(String description) {
-        memosList.add(new Memo(description));
+    public void createMemo(String name, String description) {
+        addMemo(new Memo(name, description));
         signalChanges();
     }
 
