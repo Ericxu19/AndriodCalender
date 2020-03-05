@@ -419,11 +419,71 @@ public class Calendar {
         }
     }
 
+    private void showSearchMenu(Scanner sc, int prev) throws IOException {
+        System.out.println("How would you like to search for events?");
+        System.out.println("1. By event name \n 2. By series name \n 3. By date \n 4. By tag description");
+        int choice = Integer.parseInt(sc.nextLine());
+        int choice3 = 0;
+        ArrayList<Event> searchedEvents = new ArrayList<>();
+        if(choice == 2){
+            //TODO: search by series name
+        } else {
+            EventSearcherFactory factory = new EventSearcherFactory();
+            EventSearcher searcher = factory.getEventSearcher(choice);
+            switch (choice){
+                case 1:
+                    System.out.println("Enter the event name:");
+                    String name = sc.nextLine();
+                    searchedEvents = searcher.search(currentUser.getEvents(), name);
+                    choice3 = listEvents(searchedEvents, false, sc);
+                    break;
+                case 4:
+                    System.out.println("Enter the tag description:");
+                    String desc = sc.nextLine();
+                    searchedEvents = searcher.search(currentUser.getEvents(), desc);
+                    choice3 = listEvents(searchedEvents, false, sc);
+                    break;
+                case 3:
+                    System.out.println("Search by: ");
+                    System.out.println("1. Before a certain date");
+                    System.out.println("2. After a certain date");
+                    System.out.println("3. On a certain date");
+                    int choice2 = Integer.parseInt(sc.nextLine());
+                    System.out.println("Enter the desired date to search by in form yyyy/MM/dd:");
+                    String[] tokens = sc.nextLine().split("/");
+
+                    StringToDateTimeConverter conv = new StringToDateTimeConverter();
+                    LocalDateTime searchDate = conv.dateOnly(tokens);
+
+                    switch (choice2){
+                        case 1:
+                            searchedEvents = ((DateSearcher) searcher).searchBefore(currentUser.getEvents(), searchDate);
+                            choice3 = listEvents(searchedEvents, false, sc); break;
+                        case 2:
+                            searchedEvents = ((DateSearcher) searcher).searchAfter(currentUser.getEvents(), searchDate);
+                            choice3 = listEvents(searchedEvents, false, sc); break;
+                        case 3:
+                            searchedEvents = ((DateSearcher) searcher).search(currentUser.getEvents(), searchDate);
+                            choice3 = listEvents(searchedEvents, false, sc); break;
+                    }
+
+                    break;
+                }
+            if(choice3 <= searchedEvents.size()){
+                Event event = searchedEvents.get(choice3-1);
+                showEventInfo(sc, prev, event);
+            } else {
+                showSearchMenu(sc, prev);
+            }
+            }
+        }
+
+
     private int listEvents(ArrayList<Event> list, boolean createOption, Scanner sc){
         int i;
         for(i = 1; i <= list.size(); i++){
             Event curr = list.get(i-1);
-            if(curr.getEndTime().isBefore(currentTime)) {
+            if(curr.getStartTime().isAfter(currentTime)) {
                 System.out.println(i + ": " + curr.getName());
             }
         }

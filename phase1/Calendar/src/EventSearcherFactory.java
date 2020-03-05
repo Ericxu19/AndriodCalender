@@ -1,13 +1,13 @@
 package src;
 
 public class EventSearcherFactory {
-    public EventSearcher getEventSearcher(String type){
+    public EventSearcher getEventSearcher(int type){
         switch (type){
-            case "AttachmentSearcher":
+            case 4:
                 return new AttachmentSearcher();
-            case "DateSearcher":
+            case 3:
                 return new DateSearcher();
-            case "EventNameSearcher":
+            case 1:
                 return new EventNameSearcher();
             default:
                 return null;

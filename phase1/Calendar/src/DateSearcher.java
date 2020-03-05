@@ -9,11 +9,30 @@ public class DateSearcher implements EventSearcher<LocalDateTime> {
     public ArrayList<Event> search(ArrayList<Event> events, LocalDateTime date) {
         ArrayList<Event> lst = new ArrayList<Event>();
         for (Event event : events) {
-            if (event.getStartTime() == date) {
+            if (event.getStartTime().withHour(0).withMinute(0).withSecond(0) == date) {
                 lst.add(event);
             }
         }
         return lst;
+    }
 
+    public ArrayList<Event> searchBefore(ArrayList<Event> events, LocalDateTime date) {
+        ArrayList<Event> lst = new ArrayList<Event>();
+        for (Event event : events) {
+            if (event.getStartTime().isBefore(date)) {
+                lst.add(event);
+            }
+        }
+        return lst;
+    }
+
+    public ArrayList<Event> searchAfter(ArrayList<Event> events, LocalDateTime date) {
+        ArrayList<Event> lst = new ArrayList<Event>();
+        for (Event event : events) {
+            if (event.getStartTime().isAfter(date)) {
+                lst.add(event);
+            }
+        }
+        return lst;
     }
 }

@@ -48,7 +48,7 @@ public class User extends Observable implements Serializable {
     }
 
     public void createEvent(String name, String description, LocalDateTime startTime, LocalDateTime endTime) {
-        eventsList.add(new Event(name, description, startTime, endTime));
+        addEvent(new Event(name, description, startTime, endTime));
         signalChanges();
     }
 
