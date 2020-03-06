@@ -9,6 +9,7 @@ public class User extends Observable implements Serializable {
 
     private String username;
     private String password;
+    private static final long serialVersionUID = 42L;
 
     private ArrayList<Event> eventsList;
     private ArrayList<Series> seriesList;
