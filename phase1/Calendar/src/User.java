@@ -9,6 +9,7 @@ public class User extends Observable implements Serializable {
 
     private String username;
     private String password;
+    private static final long serialVersionUID = 42L;
 
     private ArrayList<Event> eventsList;
     private ArrayList<Series> seriesList;
@@ -47,12 +48,32 @@ public class User extends Observable implements Serializable {
     }
 
     public void createEvent(String name, String description, LocalDateTime startTime, LocalDateTime endTime) {
-        eventsList.add(new Event(name, description, startTime, endTime));
+        addEvent(new Event(name, description, startTime, endTime));
         signalChanges();
     }
 
     public ArrayList<Event> getEvents() {
         return eventsList;
+    }
+
+    public void addTagToEvent(Event event, Tag att){
+        eventsList.get(eventsList.indexOf(event)).addAttachment(att);
+        signalChanges();
+    }
+
+    public void removeTagFromEvent(Event event, Tag att){
+        eventsList.get(eventsList.indexOf(event)).removeAttachment(att);
+        signalChanges();
+    }
+
+    public void addMemoToEvent(Event event, Memo memo){
+        eventsList.get(eventsList.indexOf(event)).setMemo(memo);
+        signalChanges();
+    }
+
+    public void removeMemoFromEvent(Event event){
+        eventsList.get(eventsList.indexOf(event)).setMemo(null);
+        signalChanges();
     }
 
     public void addSeries(Series series) {
@@ -84,8 +105,8 @@ public class User extends Observable implements Serializable {
         signalChanges();
     }
 
-    public void createMemo(String description) {
-        memosList.add(new Memo(description));
+    public void createMemo(String name, String description) {
+        addMemo(new Memo(name, description));
         signalChanges();
     }
 
@@ -103,11 +124,11 @@ public class User extends Observable implements Serializable {
         signalChanges();
     }
 
-    public ArrayList<Alert> raiseAllAlerts() {
+    public ArrayList<Alert> raiseAllAlerts(LocalDateTime now) {
         ArrayList<Alert> list = new ArrayList<Alert>();
         for (int i = 0; i < eventsList.size(); i++) {
             Event event = eventsList.get(i);
-            list.addAll(event.raiseAlerts());
+            list.addAll(event.raiseAlerts(now));
         }
         signalChanges();
         return list;
