@@ -107,7 +107,7 @@ public class Calendar {
                 showMemos(sc, 1);
                 break;
             case 4:
-                //Search
+                showSearchMenu(sc, 1);
                 break;
             case 5:
                 System.exit(0);
@@ -426,7 +426,14 @@ public class Calendar {
         int choice3 = 0;
         ArrayList<Event> searchedEvents = new ArrayList<>();
         if(choice == 2){
-            //TODO: search by series name
+            System.out.println("Enter the series name:");
+            String seriesName = sc.nextLine();
+            for(Series s:currentUser.getSeries()){
+                if(s.getName().equals(seriesName)){
+                    searchedEvents.addAll(s.getEvents());
+                }
+            }
+            choice3 = listEvents(searchedEvents, false, sc);
         } else {
             EventSearcherFactory factory = new EventSearcherFactory();
             EventSearcher searcher = factory.getEventSearcher(choice);
@@ -469,13 +476,14 @@ public class Calendar {
 
                     break;
                 }
-            if(choice3 <= searchedEvents.size()){
-                Event event = searchedEvents.get(choice3-1);
-                showEventInfo(sc, prev, event);
-            } else {
-                showSearchMenu(sc, prev);
+
             }
-            }
+        if(choice3 <= searchedEvents.size()){
+            Event event = searchedEvents.get(choice3-1);
+            showEventInfo(sc, prev, event);
+        } else {
+            showSearchMenu(sc, prev);
+        }
         }
 
 
