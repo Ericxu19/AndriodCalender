@@ -78,6 +78,9 @@ public class User extends Observable implements Serializable {
 
     public void addSeries(Series series) {
         seriesList.add(series);
+        for (Event e: series.getEvents()) {
+            eventsList.add(e);
+        }
         signalChanges();
     }
 
