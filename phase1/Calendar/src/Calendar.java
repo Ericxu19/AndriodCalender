@@ -290,7 +290,7 @@ public class Calendar {
             case 2:
                 System.out.println("Here is a list of associated events:");
                 AttachmentSearcher searcher2 = new AttachmentSearcher();
-                int choice3 = listEvents(searcher2.search(currentUser.getEvents(), memo), false, sc);
+                int choice3 = listEvents(searcher2.searchByMemo(currentUser.getEvents(), memo), false, sc);
                 if(choice3 <= currentUser.getEvents().size()){
                     Event event = currentUser.getEvents().get(choice3-1);
                     showEventInfo(sc, prev, event);
@@ -304,7 +304,7 @@ public class Calendar {
                 if(choice == 1){
                     currentUser.removeMemo(memo);
                     AttachmentSearcher searcher = new AttachmentSearcher();
-                    for(Event ev : searcher.search(currentUser.getEvents(), memo)){
+                    for(Event ev : searcher.searchByMemo(currentUser.getEvents(), memo)){
                         currentUser.removeMemoFromEvent(ev);
                     }
                     System.out.println("Successfully deleted!");
