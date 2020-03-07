@@ -511,10 +511,11 @@ public class Calendar {
 
     private int listEvents(ArrayList<Event> list, boolean createOption, Scanner sc){
         int i;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         for(i = 1; i <= list.size(); i++){
             Event curr = list.get(i-1);
             if(curr.getStartTime().isAfter(currentTime)) {
-                System.out.println(i + ": " + curr.getName());
+                System.out.println(i + ": " + curr.getName() + " - " + curr.getStartTime().format(formatter));
             }
         }
         if(createOption) {
