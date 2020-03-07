@@ -205,11 +205,33 @@ public class Calendar {
         StringToDateTimeConverter conv = new StringToDateTimeConverter();
 
         System.out.println("Enter the desired start date and time in yyyy/MM/dd/hh/mm/ss form");
-        String[] tokens = sc.nextLine().split("/");
+        String td1 = "";
+        boolean bad = true;
+        while(bad){
+            td1 = sc.nextLine();
+            if(td1.matches("[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9]/[0-9][0-9]/[0-9][0-9]/[0-9][0-9]")){
+                bad = false;
+            }
+            else{
+                System.out.println("The input is formatted incorrectly");
+            }
+        }
+        String[] tokens = td1.split("/");
         LocalDateTime start = conv.secondLowest(tokens);
-
+        bad = true;
+        String td2 = "";
         System.out.println("Enter the desired end date and time in yyyy/MM/dd/hh/mm/ss form");
-        tokens = sc.nextLine().split("/");
+
+        while(bad){
+            td2 = sc.nextLine();
+            if(td2.matches("[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9]/[0-9][0-9]/[0-9][0-9]/[0-9][0-9]")){
+                bad = false;
+            }
+            else{
+                System.out.println("The input is formatted incorrectly");
+            }
+        }
+        tokens = td2.split("/");
         LocalDateTime end = conv.secondLowest(tokens);
 
         currentUser.createEvent(eventName, eventDescription, start, end);
@@ -401,7 +423,18 @@ public class Calendar {
                 StringToDateTimeConverter conv = new StringToDateTimeConverter();
 
                 System.out.println("Enter the desired alert date and time in yyyy/MM/dd/hh/mm/ss form");
-                String[] tokens = sc.nextLine().split("/");
+                String td1 = "";
+                boolean bad = true;
+                while(bad){
+                    td1 = sc.nextLine();
+                    if(td1.matches("[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9]/[0-9][0-9]/[0-9][0-9]/[0-9][0-9]")){
+                        bad = false;
+                    }
+                    else{
+                        System.out.println("The input is formatted incorrectly");
+                    }
+                }
+                String[] tokens = td1.split("/");
                 LocalDateTime start = conv.secondLowest(tokens);
 
                 currentUser.addAlertToEvent(event, new Triple<String,String, LocalDateTime>(des, name, start));
