@@ -356,7 +356,11 @@ public class Calendar {
         int choice = Integer.parseInt(sc.nextLine());
         switch (choice){
             case 1:
-                showMemoInfo(sc, 10, event.getMemo());
+                try {
+                    showMemoInfo(sc, 10, event.getMemo());
+                } catch (NullPointerException e) {
+                    System.out.println("There are no memos");
+                }
                 break;
             case 2:
                 System.out.println("Tags:");
