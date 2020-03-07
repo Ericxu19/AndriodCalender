@@ -20,7 +20,7 @@ public class UserWriter implements Observer {
             objectOutputStream.writeObject(user);
             objectOutputStream.close();
         } catch (IOException e) {
-            //TODO
+            System.out.println("Something wrong with the new user, please check the location of file.");
             e.printStackTrace();
         }
     }
