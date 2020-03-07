@@ -493,9 +493,10 @@ public class Calendar {
         int i;
         for(i = 1; i <= list.size(); i++){
             Event curr = list.get(i-1);
-            if(curr.getStartTime().isAfter(currentTime)) {
-                System.out.println(i + ": " + curr.getName());
-            }
+//            if(curr.getStartTime().isAfter(currentTime)) {
+//                System.out.println(i + ": " + curr.getName());
+//            }
+            System.out.println(i + ": " + curr.getName());
         }
         if(createOption) {
             System.out.println((i) + ": Create new Event");
