@@ -7,6 +7,8 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 public class Calendar {
 
@@ -18,7 +20,21 @@ public class Calendar {
         Scanner sc = new Scanner(System.in);
         while (currentUser == null) {
             System.out.println("Select an option: \n 1. Login \n 2. Register \n 3. Exit");
-            choice = Integer.parseInt(sc.nextLine());
+            boolean matches = false;
+            while (!matches) {
+                String text = sc.nextLine();
+                String options = "[123]";
+
+                Pattern pattern = Pattern.compile(options);
+                Matcher matcher = pattern.matcher(text);
+                matches = matcher.matches();
+                if (matches) {
+                    choice = Integer.parseInt(text);
+                } else {
+                    System.out.println("That is not an option, please enter an available option.");
+                }
+            }
+
 
             if (choice == 1) {
                 System.out.println("Enter your username:");
