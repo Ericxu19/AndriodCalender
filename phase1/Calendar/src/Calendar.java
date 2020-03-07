@@ -421,7 +421,7 @@ public class Calendar {
 
     private void showSearchMenu(Scanner sc, int prev) throws IOException {
         System.out.println("How would you like to search for events?");
-        System.out.println("1. By event name \n 2. By series name \n 3. By date \n 4. By tag description");
+        System.out.println("1. By event name \n 2. By series name \n 3. By date \n 4. By tag description \n 5. Back");
         int choice = Integer.parseInt(sc.nextLine());
         int choice3 = 0;
         ArrayList<Event> searchedEvents = new ArrayList<>();
@@ -434,6 +434,8 @@ public class Calendar {
                 }
             }
             choice3 = listEvents(searchedEvents, false, sc);
+        } else if (choice == 5) {
+            prevScreen(sc, prev, 1);
         } else {
             EventSearcherFactory factory = new EventSearcherFactory();
             EventSearcher searcher = factory.getEventSearcher(choice);
@@ -476,14 +478,14 @@ public class Calendar {
 
                     break;
                 }
-
             }
-        if(choice3 <= searchedEvents.size()){
-            Event event = searchedEvents.get(choice3-1);
-            showEventInfo(sc, prev, event);
-        } else {
-            showSearchMenu(sc, prev);
-        }
+
+            if(choice3 <= searchedEvents.size()){
+                Event event = searchedEvents.get(choice3-1);
+                showEventInfo(sc, prev, event);
+            } else {
+                showSearchMenu(sc, prev);
+            }
         }
 
 
