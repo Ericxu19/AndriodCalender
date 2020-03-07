@@ -5,7 +5,7 @@ public class Tag extends Attachment {
     private String description;
 
     public Tag(String tag) {
-        this.description = tag;
+        super(tag);
     }
 
 }

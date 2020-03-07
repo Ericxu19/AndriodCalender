@@ -24,7 +24,7 @@ public class Series implements Serializable {
         this.events = new ArrayList<Event>();
 
         for (int i = 0; i < numEvents; i++) {
-            this.events.add(new Event(name, description, startDateTime.plusDays(i * dayGap), startDateTime.plusDays(i * dayGap).withHour(endTime.getHour()).withMinute(endTime.getMinute())));
+            this.events.add(new Event("Event from series " + name, description, startDateTime.plusDays(i * dayGap), startDateTime.plusDays(i * dayGap).withHour(endTime.getHour()).withMinute(endTime.getMinute())));
         }
     }
 
@@ -35,7 +35,7 @@ public class Series implements Serializable {
 
         while (numEvents > 0) {
             if (days.contains(startDateTime.getDayOfWeek())) {
-                this.events.add(new Event(name, description, startDateTime, startDateTime.withHour(endTime.getHour()).withMinute(endTime.getMinute())));
+                this.events.add(new Event("Event from series " + name, description, startDateTime, startDateTime.withHour(endTime.getHour()).withMinute(endTime.getMinute())));
                 numEvents -= 1;
             }
             startDateTime = startDateTime.plusDays(1);

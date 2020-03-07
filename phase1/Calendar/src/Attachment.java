@@ -7,6 +7,10 @@ public abstract class Attachment implements Serializable {
 
     private String description;
 
+    public Attachment(String description){
+        this.description = description;
+    }
+
     public String getDescription() {
         return this.description;
     }
