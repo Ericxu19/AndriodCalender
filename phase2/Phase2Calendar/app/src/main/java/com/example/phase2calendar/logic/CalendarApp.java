@@ -1,3 +1,5 @@
+package com.example.phase2calendar.logic;
+
 import java.io.IOException;
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;

@@ -1,3 +1,5 @@
+package com.example.phase2calendar.logic;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.time.LocalDateTime;

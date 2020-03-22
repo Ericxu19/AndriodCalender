@@ -1,3 +1,5 @@
+package com.example.phase2calendar.logic;
+
 public class EventSearcherFactory {
     public EventSearcher getEventSearcher(int type){
         switch (type){

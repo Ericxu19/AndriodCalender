@@ -1,3 +1,5 @@
+package com.example.phase2calendar.logic;
+
 import java.io.Serializable;
 
 public abstract class Attachment implements Serializable {

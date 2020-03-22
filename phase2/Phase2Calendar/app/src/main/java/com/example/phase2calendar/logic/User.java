@@ -1,3 +1,5 @@
+package com.example.phase2calendar.logic;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.time.LocalDateTime;
@@ -42,11 +44,6 @@ public class User extends Observable implements Serializable {
 
     public void removeEventFromCalendar(Event event, Calendar calendar) {
         calendar.removeEvent(event);
-        signalChanges();
-    }
-
-    public void createEvent(String name, String description, LocalDateTime startTime, LocalDateTime endTime) {
-        addEvent(new Event(name, description, startTime, endTime));
         signalChanges();
     }
 
@@ -111,19 +108,16 @@ public class User extends Observable implements Serializable {
         signalChanges();
     }
 
-    public void createMemo(String name, String description) {
-        addMemo(new Memo(name, description));
-        signalChanges();
-    }
-
     public ArrayList<Memo> getMemosFromCalendar(Calendar calendar) {
         return calendar.getMemos();
     }
 
     public ArrayList<Memo> getAllMemos() {
+        ArrayList<Memo> memosList = new ArrayList<>();
         for(Calendar c:calendarsList){
-            c.getMemos();
+            memosList.addAll(c.getMemos());
         }
+        return memosList;
     }
 
     public void addAlertToEventInCalendar(Event event, Triple<String, String, LocalDateTime> t, Calendar calendar) {

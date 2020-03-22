@@ -1,3 +1,5 @@
+package com.example.phase2calendar.logic;
+
 import java.util.ArrayList;
 
 public class EventNameSearcher implements EventSearcher<String> {
