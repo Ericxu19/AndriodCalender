@@ -12,11 +12,13 @@ public class User extends Observable implements Serializable {
     private static final long serialVersionUID = 42L;
 
     private ArrayList<Calendar> calendarsList;
+    private ArrayList<Message> messagesList;
 
     public User(String username, String password) {
         this.username = username;
         this.password = password;
         this.calendarsList = new ArrayList<>();
+        this.messagesList = new ArrayList<>();
     }
 
     public void signalChanges() {
@@ -136,5 +138,17 @@ public class User extends Observable implements Serializable {
             list.addAll(c.raiseAllAlerts(now));
         }
         return list;
+    }
+
+    public void addMessage(Message message){
+        messagesList.add(message);
+    }
+
+    public void deleteMessage(Message message){
+        messagesList.remove(message);
+    }
+
+    public void sendMessage(Message message, User recipient){
+        recipient.addMessage(message);
     }
 }
