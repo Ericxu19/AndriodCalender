@@ -1,5 +1,8 @@
 package com.example.phase2calendar.logic;
 
+import android.os.Build;
+import androidx.annotation.RequiresApi;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.time.LocalDateTime;
@@ -28,6 +31,7 @@ public class Series implements Serializable {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public Series(String name, String description, LocalDateTime startDateTime, LocalTime endTime, ArrayList<DayOfWeek> days, int numEvents) {
         this.name = name;
         this.description = description;
