@@ -7,7 +7,7 @@ import java.io.OutputStream;
 
 public class UserManager {
 
-    UserManager() {
+    public UserManager() {
     }
 
     public Object[] createUser(String username, String password) throws IOException {
