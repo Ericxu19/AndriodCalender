@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Phase2Calendar.iml" filepath="$PROJECT_DIR$/Phase2Calendar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/Phase2Calendar-app.iml" filepath="$PROJECT_DIR$/app/Phase2Calendar-app.iml" group="Phase2Calendar/app" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/phase2-Phase2Calendar.iml" filepath="$PROJECT_DIR$/phase2-Phase2Calendar.iml" group="Phase2Calendar" />
     </modules>
   </component>
 </project>
