@@ -8,4 +8,5 @@
 
     <string name="button_login">Login</string>
     <string name="button_register">Register</string>
+    <string name="registered">Thank you for Registering.</string>
 </resources>
