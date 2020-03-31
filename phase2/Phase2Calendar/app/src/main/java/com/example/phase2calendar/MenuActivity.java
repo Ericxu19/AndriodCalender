@@ -24,7 +24,7 @@ public class MenuActivity extends AppCompatActivity {
 
         //Updates the page with the info from the Calender
         TextView textView = findViewById(R.id.textView6);
-        textView.setText();
+        textView.setText("Calendar");
 
 
     }
