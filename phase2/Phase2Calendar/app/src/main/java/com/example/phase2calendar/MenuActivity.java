@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.phase2calendar.logic.User;
@@ -24,7 +25,13 @@ public class MenuActivity extends AppCompatActivity {
 
         //Updates the page with the info from the Calender
         TextView textView = findViewById(R.id.textView6);
-        textView.setText("Calendar");
+        textView.setText(R.string.calendar);
+
+        Button memo = findViewById(R.id.memos);
+        memo.setOnClickListener(v -> {
+            Intent goToMemos = new Intent(getApplicationContext(), MemoActivity.class);
+            startActivity(goToMemos);
+        });
 
 
     }
