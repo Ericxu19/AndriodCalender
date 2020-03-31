@@ -48,11 +48,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
+
         <activity
                 android:name=".MenuActivity"
                 android:parentActivityName=".LoginActivity"/>
-            android:name=".MenuActivity"
-            android:parentActivityName=".LoginActivity" />
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

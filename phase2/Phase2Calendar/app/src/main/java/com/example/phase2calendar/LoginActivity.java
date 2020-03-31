@@ -17,8 +17,6 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        //TODO: show popups
     }
 
     public void loginUser(View view) {
@@ -36,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
         } else {
             // Successful login
             currentUser.setContext(getApplicationContext());
-            Intent intent = new Intent(this, MainMenuActivity.class);
+            Intent intent = new Intent(this, MenuActivity.class);
             intent.putExtra("currentUser", currentUser);
             startActivity(intent);
         }
