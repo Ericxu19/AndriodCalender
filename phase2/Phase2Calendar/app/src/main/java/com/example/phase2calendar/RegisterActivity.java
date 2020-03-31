@@ -50,7 +50,7 @@ public class RegisterActivity extends AppCompatActivity {
                 popups.add("This username is already in use");
                 intent.putExtra("com.example.phase2calendar.popups", popups);
             } else {
-                intent = new Intent(this, MainMenuActivity.class);
+                intent = new Intent(this, MainActivity.class);
                 intent.putExtra("currentUser", (User) res[0]);
             }
         }

@@ -6,14 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".MenuActivity">
 
-    <CalendarView
-        android:id="@+id/calendarView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="356dp" />
-
     <SearchView
         android:layout_width="341dp"
         android:layout_height="78dp"

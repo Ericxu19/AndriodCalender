@@ -28,18 +28,19 @@ public class LoginActivity extends AppCompatActivity {
 
         LoginValidator loginValidator = new LoginValidator();
         User currentUser = loginValidator.validate(username, password);
+
+        Intent intent = new Intent(this, LoginActivity.class);
+        ArrayList<String> popups = new ArrayList<>();
+
         if(currentUser == null){
             // Incorrect login credentials
-            Intent intent = new Intent(this, LoginActivity.class);
-            ArrayList<String> popups = new ArrayList<>();
             popups.add("Your login credentials are incorrect");
             intent.putExtra("com.example.phase2calendar.popups", popups);
-            startActivity(intent);
         } else {
             // Successful login
-            Intent intent = new Intent(this, MainMenuActivity.class);
+            intent = new Intent(this, MenuActivity.class);
             intent.putExtra("currentUser", currentUser);
-            startActivity(intent);
         }
+        startActivity(intent);
     }
 }
