@@ -20,4 +20,29 @@
         android:text="TextView"
         tools:layout_editor_absoluteX="35dp"
         tools:layout_editor_absoluteY="152dp" />
+
+    <Button
+        android:id="@+id/event"
+        android:layout_width="215dp"
+        android:layout_height="51dp"
+        android:text="Events"
+        tools:layout_editor_absoluteX="98dp"
+        tools:layout_editor_absoluteY="375dp" />
+
+    <Button
+        android:id="@+id/memos"
+        android:layout_width="215dp"
+        android:layout_height="51dp"
+        android:text="Memos"
+        tools:layout_editor_absoluteX="98dp"
+        tools:layout_editor_absoluteY="566dp" />
+
+    <Button
+        android:id="@+id/alert"
+        android:layout_width="215dp"
+        android:layout_height="51dp"
+        android:text="Alerts"
+        tools:layout_editor_absoluteX="98dp"
+        tools:layout_editor_absoluteY="471dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
