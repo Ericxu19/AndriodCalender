@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.phase2calendar.logic.User;
+import com.example.phase2calendar.logic.Calendar;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -18,7 +19,10 @@ public class MenuActivity extends AppCompatActivity {
         //Gets the User object and creates the Calender around it
         Intent intent = getIntent();
         User user = (User) intent.getSerializableExtra("currentUser");
+        Calendar calendar = new Calendar(user.getUsername());
+        user.addCalendar(calendar);
 
+        //Updates the page with the info from the Calender
         TextView textView = findViewById(R.id.textView6);
         textView.setText();
 
