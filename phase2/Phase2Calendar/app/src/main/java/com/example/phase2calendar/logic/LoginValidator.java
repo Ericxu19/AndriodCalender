@@ -1,11 +1,13 @@
 package com.example.phase2calendar.logic;
 
+import android.content.Context;
+
 import java.io.*;
 
 public class LoginValidator {
-    public User validate(String username, String password) {
+    public User validate(String username, String password, Context context) {
         username = username.toLowerCase();
-        File userFile = new File("Users/" + username + ".txt");
+        File userFile = new File(context.getFilesDir(), username + ".txt");
         boolean exists = userFile.exists();
         if (!exists) return null;
         User user = instantiateUser(userFile);

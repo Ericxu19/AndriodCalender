@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.phase2calendar.logic.User;
@@ -30,30 +31,25 @@ public class RegisterActivity extends AppCompatActivity {
         String password = passwordField.getText().toString();
         String confirmPassword = confirmPasswordField.getText().toString();
 
-        ArrayList<String> popups = new ArrayList<>();
-        Intent intent = new Intent(this, RegisterActivity.class);
-
         if(username.length() == 0 || password.length() == 0){
-            popups.add("Username and password cannot be empty");
-            intent.putExtra("com.example.phase2calendar.popups", popups);
+            Toast.makeText(getApplicationContext(), "Username and password cannot be empty", Toast.LENGTH_SHORT).show();
         }
         else if(!username.matches(pattern)){
-            popups.add("Username must only contain letters and numbers");
-            intent.putExtra("com.example.phase2calendar.popups", popups);
+            Toast.makeText(getApplicationContext(), "Username must only contain letters and numbers", Toast.LENGTH_SHORT).show();
         }
         else if(!password.equals(confirmPassword)){
-            popups.add("Passwords must match");
-            intent.putExtra("com.example.phase2calendar.popups", popups);
+            Toast.makeText(getApplicationContext(), "Passwords must match", Toast.LENGTH_SHORT).show();
         } else {
-            Object[] res = userManager.createUser(username, password);
+            Object[] res = userManager.createUser(username, password, getApplicationContext());
             if(!(boolean) res[1]){
-                popups.add("This username is already in use");
-                intent.putExtra("com.example.phase2calendar.popups", popups);
+                Toast.makeText(getApplicationContext(), "This username is already in use", Toast.LENGTH_SHORT).show();
             } else {
-                intent = new Intent(this, MainActivity.class);
-                intent.putExtra("currentUser", (User) res[0]);
+                User currentUser = (User) res[0];
+                currentUser.setContext(getApplicationContext());
+                Intent intent = new Intent(this, MainMenuActivity.class);
+                intent.putExtra("currentUser", currentUser);
+                startActivity(intent);
             }
         }
-        startActivity(intent);
     }
 }

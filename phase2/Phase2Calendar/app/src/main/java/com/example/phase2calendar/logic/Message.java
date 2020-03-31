@@ -16,6 +16,7 @@ public class Message implements Serializable {
         this.sender = sender;
         this.recipient = recipient;
         this.timeSent = timeSent;
+        this.event = null;
     }
 
     public Message(String text, Event event, User sender, User recipient, LocalDateTime timeSent){
@@ -24,5 +25,17 @@ public class Message implements Serializable {
         this.sender = sender;
         this.recipient = recipient;
         this.timeSent = timeSent;
+    }
+
+    public User getSender() {
+        return sender;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public boolean hasEvent() {
+        return null == this.event;
     }
 }

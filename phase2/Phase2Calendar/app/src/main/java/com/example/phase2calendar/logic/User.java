@@ -1,5 +1,7 @@
 package com.example.phase2calendar.logic;
 
+import android.content.Context;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.time.LocalDateTime;
@@ -9,6 +11,7 @@ public class User extends Observable implements Serializable {
 
     private String username;
     private String password;
+    private transient Context context;
     private static final long serialVersionUID = 42L;
 
     private ArrayList<Calendar> calendarsList;
@@ -23,7 +26,7 @@ public class User extends Observable implements Serializable {
 
     public void signalChanges() {
         setChanged();
-        if (hasChanged()) notifyObservers();
+        if (hasChanged()) notifyObservers(context);
         clearChanged();
     }
 
@@ -34,6 +37,10 @@ public class User extends Observable implements Serializable {
     public String getPassword() {
         return password;
     }
+
+    public Context getContext() { return context; }
+
+    public void setContext(Context context) { this.context = context; }
 
     public void addCalendar(Calendar calendar) {
         calendarsList.add(calendar);
@@ -151,4 +158,6 @@ public class User extends Observable implements Serializable {
     public void sendMessage(Message message, User recipient){
         recipient.addMessage(message);
     }
+
+    public ArrayList<Message> getMessagesList() { return messagesList; }
 }
