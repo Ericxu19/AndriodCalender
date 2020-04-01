@@ -17,5 +17,8 @@
     <string name="newMemoBtn">Create a new memo</string>
     <string name="memoBack">Back</string>
     <string name="calendar">Calendar</string>
-
+    <string name="goToMemo">Go to memo number:</string>
+    <string name="memoName">Enter a name for the new Memo</string>
+    <string name="memoDescription">Enter a description for the new Memo</string>
+    <string name="createMemo">create the new memo</string>
 </resources>
