@@ -46,7 +46,7 @@ public class RegisterActivity extends AppCompatActivity {
             } else {
                 User currentUser = (User) res[0];
                 currentUser.setContext(getApplicationContext());
-                Intent intent = new Intent(this, MenuActivity.class);
+                Intent intent = new Intent(this, RegisteredActivity.class);
                 intent.putExtra("currentUser", currentUser);
                 startActivity(intent);
             }

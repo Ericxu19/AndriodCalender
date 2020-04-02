@@ -17,5 +17,11 @@
     <string name="newMemoBtn">Create a new memo</string>
     <string name="memoBack">Back</string>
     <string name="calendar">Calendar</string>
+    <string name="compose">Compose</string>
+    <string name="delete">Delete</string>
+    <string name="calendars">Calendars</string>
+    <string name="new_calendar">New Calendar</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
 
 </resources>

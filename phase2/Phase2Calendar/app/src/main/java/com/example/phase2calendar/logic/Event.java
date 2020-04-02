@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.io.Serializable;
 
-public class Event implements Serializable {
+public class Event implements Serializable, Nameable {
     private String name;
     private String description;
     private LocalDateTime startTime;

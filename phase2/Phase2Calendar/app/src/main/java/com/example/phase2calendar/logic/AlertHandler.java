@@ -31,7 +31,7 @@ public class AlertHandler implements Serializable {
     public ArrayList<Alert> raiseAlerts(LocalDateTime now) {
         ArrayList<Alert> out = new ArrayList<>();
         for (Alert a : alerts) {
-            if (now.isAfter(a.getTime())) {
+            if (now.isAfter(a.getStartTime())) {
                 out.add(a);
             }
         }

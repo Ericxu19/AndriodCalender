@@ -3,7 +3,7 @@ package com.example.phase2calendar.logic;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class Alert implements Serializable {
+public class Alert implements Serializable, Nameable {
 
     private String description;
     private String name;
@@ -15,9 +15,11 @@ public class Alert implements Serializable {
         this.time = time;
     }
 
-    public LocalDateTime getTime() {
+    public LocalDateTime getStartTime() {
         return time;
     }
+
+    public LocalDateTime getEndTime(){ return null; }
 
     public String getDescription() {
         return description;

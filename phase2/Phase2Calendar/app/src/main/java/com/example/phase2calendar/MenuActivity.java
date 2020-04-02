@@ -20,7 +20,7 @@ public class MenuActivity extends AppCompatActivity {
         //Gets the User object and creates the Calender around it
         Intent intent = getIntent();
         User user = (User) intent.getSerializableExtra("currentUser");
-        Calendar calendar = new Calendar(user.getUsername());
+        Calendar calendar = (Calendar) intent.getSerializableExtra("currentCalendar");
         user.addCalendar(calendar);
 
         //Updates the page with the info from the Calender

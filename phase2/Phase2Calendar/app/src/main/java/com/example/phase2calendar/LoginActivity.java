@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.phase2calendar.logic.LoginValidator;
 import com.example.phase2calendar.logic.User;
+import com.example.phase2calendar.logic.UserWriter;
 
 import java.util.ArrayList;
 
@@ -34,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
         } else {
             // Successful login
             currentUser.setContext(getApplicationContext());
-            Intent intent = new Intent(this, MenuActivity.class);
+            Intent intent = new Intent(this, MainMenuActivity.class);
             intent.putExtra("currentUser", currentUser);
             startActivity(intent);
         }

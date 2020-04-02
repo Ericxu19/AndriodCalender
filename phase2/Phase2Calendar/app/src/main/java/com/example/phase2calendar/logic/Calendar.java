@@ -4,23 +4,33 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.time.LocalDateTime;
 
-public class Calendar implements Serializable {
+public class Calendar implements Serializable, Nameable {
 
     private String name;
+    private String description;
     private ArrayList<Event> eventsList;
     private ArrayList<Series> seriesList;
     private ArrayList<Memo> memosList;
 
-    public Calendar(String name) {
+    public Calendar(String name, String description) {
         this.eventsList = new ArrayList<>();
         this.seriesList = new ArrayList<>();
         this.memosList = new ArrayList<>();
         this.name = name;
+        this.description = description;
     }
 
     public String getName() {
         return this.name;
     }
+
+    public String getDescription() { return this.description; }
+
+    @Override
+    public LocalDateTime getStartTime() { return null; }
+
+    @Override
+    public LocalDateTime getEndTime() { return null; }
 
     public void addEvent(Event event){
         eventsList.add(event);

@@ -1,10 +1,13 @@
 package com.example.phase2calendar;
 
 import android.content.Intent;
+import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import com.example.phase2calendar.adapters.MessageAdapter;
+import com.example.phase2calendar.dialogs.CalendarCreationDialog;
 import com.example.phase2calendar.logic.User;
 
 public class MessagesActivity extends AppCompatActivity {

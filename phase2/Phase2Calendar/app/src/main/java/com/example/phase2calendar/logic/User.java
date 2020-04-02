@@ -44,7 +44,10 @@ public class User extends Observable implements Serializable {
 
     public void addCalendar(Calendar calendar) {
         calendarsList.add(calendar);
+        signalChanges();
     }
+
+    public ArrayList<Calendar> getCalendarsList() { return calendarsList; }
 
     public void addEventToCalendar(Event event, Calendar calendar) {
         calendar.addEvent(event);

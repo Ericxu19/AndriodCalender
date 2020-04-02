@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.DayOfWeek;
 
-public class Series implements Serializable {
+public class Series implements Serializable, Nameable {
 
     private String name;
     private String description;
@@ -65,4 +65,10 @@ public class Series implements Serializable {
     public String getDescription() {
         return description;
     }
+
+    @Override
+    public LocalDateTime getStartTime() { return null; }
+
+    @Override
+    public LocalDateTime getEndTime() { return null; }
 }

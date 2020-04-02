@@ -1,4 +1,4 @@
-package com.example.phase2calendar;
+package com.example.phase2calendar.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import com.example.phase2calendar.R;
 import com.example.phase2calendar.logic.Message;
 
 import java.util.ArrayList;
