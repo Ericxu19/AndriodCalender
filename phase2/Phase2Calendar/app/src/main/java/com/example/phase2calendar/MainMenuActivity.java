@@ -1,7 +1,9 @@
 package com.example.phase2calendar;
 
 import android.content.Intent;
+import android.os.Build;
 import android.view.View;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -9,11 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.phase2calendar.adapters.GenericAdapter;
 import com.example.phase2calendar.adapters.MessageAdapter;
 import com.example.phase2calendar.dialogs.CalendarCreationDialog;
-import com.example.phase2calendar.logic.Calendar;
-import com.example.phase2calendar.logic.Nameable;
-import com.example.phase2calendar.logic.User;
-import com.example.phase2calendar.logic.UserWriter;
+import com.example.phase2calendar.logic.*;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class MainMenuActivity extends AppCompatActivity implements CalendarCreationDialog.CalendarCreationDialogListener {
@@ -24,6 +24,7 @@ public class MainMenuActivity extends AppCompatActivity implements CalendarCreat
 
     private User currentUser;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
