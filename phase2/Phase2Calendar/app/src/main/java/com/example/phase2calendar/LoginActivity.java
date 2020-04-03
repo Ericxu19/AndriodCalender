@@ -35,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
         } else {
             // Successful login
             currentUser.setContext(getApplicationContext());
-            Intent intent = new Intent(this, MainMenuActivity.class);
+            Intent intent = new Intent(this, UserMenuActivity.class);
             intent.putExtra("currentUser", currentUser);
             startActivity(intent);
         }
