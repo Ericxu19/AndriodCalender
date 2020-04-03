@@ -30,5 +30,11 @@
     <string name="memoName">Enter a name for the new Memo</string>
     <string name="memoDescription">Enter a description for the new Memo</string>
     <string name="createMemo">create the new memo</string>
+    <string name="createEvent">create the new event</string>
+
+    <string name="starttime">Enter start time</string>
+    <string name="endtime">Enter end time</string>
+    <string name="enddate">Enter end date</string>
+    <string name="startdate">Enter start date</string>
 
 </resources>

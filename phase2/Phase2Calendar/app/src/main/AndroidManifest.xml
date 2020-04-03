@@ -9,40 +9,39 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NewMemoActivity"></activity>
+        <activity android:name=".EventActivity"></activity>
+        <activity android:name=".NewMemoActivity" />
         <activity android:name=".MemoActivity" />
         <activity android:name=".MessagesActivity" />
         <activity android:name=".MemoListActivity" />
         <activity
             android:name=".MainMenuActivity"
-            android:parentActivityName=".MainActivity"
-            android:label="@string/calendars">
+            android:label="@string/calendars"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".RegisterActivity"
-            android:parentActivityName=".MainActivity"
-            android:label="@string/button_register">
+            android:label="@string/button_register"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:parentActivityName=".MainActivity"
-            android:label="@string/button_login">
+            android:label="@string/button_login"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
         <activity
-
-                android:name=".RegisteredActivity"
-                android:parentActivityName=".MainActivity"
-                android:label="Registered!">
-            
+            android:name=".RegisteredActivity"
+            android:label="Registered!"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />

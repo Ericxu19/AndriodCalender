@@ -19,8 +19,8 @@ public class NewMemoActivity extends AppCompatActivity {
     }
 
     public void createMemo (View view) {
-        EditText memoNameField = findViewById(R.id.memoName);
-        EditText memoDescriptionField = findViewById(R.id.memoDescription);
+        EditText memoNameField = findViewById(R.id.eventName);
+        EditText memoDescriptionField = findViewById(R.id.eventDescription);
         String memoName = memoNameField.getText().toString();
         String memoDescription = memoDescriptionField.getText().toString();
 

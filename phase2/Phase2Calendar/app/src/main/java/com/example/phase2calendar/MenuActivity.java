@@ -34,6 +34,14 @@ public class MenuActivity extends AppCompatActivity {
             startActivity(goToMemos);
         });
 
+        Button event_butt = findViewById(R.id.event);
+        event_butt.setOnClickListener(v -> {
+            Intent goToEvents = new Intent(getApplicationContext(), EventActivity.class);
+            goToEvents.putExtra("currentUser", user);
+            startActivity(goToEvents);
+        });
+
+
 
     }
 
