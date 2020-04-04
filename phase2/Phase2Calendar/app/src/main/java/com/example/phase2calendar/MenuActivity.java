@@ -36,28 +36,36 @@ public class MenuActivity extends AppCompatActivity {
 
     }
 
-        public void memoMenu(View view)
-        {
-            Button memo = findViewById(R.id.memos);
-            Intent goToMemos = new Intent(getApplicationContext(), MemoListActivity.class);
-            goToMemos.putExtra("currentUser", user);
-            startActivity(goToMemos);
-        }
-
-        public void eventMenu(View view)
-        {
-            Button event_butt = findViewById(R.id.event);
-            Intent goToEvents = new Intent(getApplicationContext(), EventActivity.class);
-            goToEvents.putExtra("currentUser", user);
-            startActivity(goToEvents);
-        }
-
-        public void alertMenu(View view)
-        {
-            Button alert = findViewById(R.id.alert);
-            Intent goToAlert = new Intent(getApplicationContext(), AlertMenu.class);
-            goToAlert.putExtra("currentUser", user);
-            startActivity(goToAlert);
-        }
-
+    @Override
+    public boolean onSupportNavigateUp() {
+        Intent back = new Intent(this, MainMenuActivity.class);
+        back.putExtra("currentUser", user);
+        startActivity(back);
+        return true;
     }
+
+    public void memoMenu(View view)
+    {
+        Button memo = findViewById(R.id.memos);
+        Intent goToMemos = new Intent(getApplicationContext(), MemoListActivity.class);
+        goToMemos.putExtra("currentUser", user);
+        startActivity(goToMemos);
+    }
+
+    public void eventMenu(View view)
+    {
+        Button event_butt = findViewById(R.id.event);
+        Intent goToEvents = new Intent(getApplicationContext(), EventActivity.class);
+        goToEvents.putExtra("currentUser", user);
+        startActivity(goToEvents);
+    }
+
+    public void alertMenu(View view)
+    {
+        Button alert = findViewById(R.id.alert);
+        Intent goToAlert = new Intent(getApplicationContext(), AlertMenu.class);
+        goToAlert.putExtra("currentUser", user);
+        startActivity(goToAlert);
+    }
+
+}

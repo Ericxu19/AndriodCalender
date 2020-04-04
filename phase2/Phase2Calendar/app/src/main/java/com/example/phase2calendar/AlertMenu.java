@@ -25,7 +25,7 @@ public class AlertMenu extends AppCompatActivity {
 
     @Override
     public boolean onSupportNavigateUp() {
-        Intent back = new Intent(this, MainMenuActivity.class);
+        Intent back = new Intent(this, MenuActivity.class);
         back.putExtra("currentUser", user);
         startActivity(back);
         return true;
@@ -33,6 +33,8 @@ public class AlertMenu extends AppCompatActivity {
 
     public void newAlert(View view)
     {
-        Intent newAlert = new Intent(this, )
+        Intent newAlert = new Intent(this, NewAlertActivity.class);
+        newAlert.putExtra("currentUser", user);
+        startActivity(newAlert);
     }
 }

@@ -6,4 +6,33 @@
     android:layout_height="match_parent"
     tools:context=".AlertMenu">
 
+    <Button
+        android:id="@+id/newAlert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="newAlert"
+        android:text="Create new Alert"
+        tools:layout_editor_absoluteX="127dp"
+        tools:layout_editor_absoluteY="639dp" />
+
+    <ScrollView
+        android:id="@+id/alerts"
+        android:layout_width="409dp"
+        android:layout_height="563dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="There are no alerts for this event" />
+        </LinearLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

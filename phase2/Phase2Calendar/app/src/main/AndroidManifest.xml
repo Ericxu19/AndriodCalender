@@ -25,6 +25,10 @@
 
         <activity android:name=".MemoActivity"/>
 
+        <activity android:name=".AlertMenu" />
+
+        <activity android:name=".NewAlertActivity" />
+
         <activity android:name=".MessagesActivity"
                   android:parentActivityName=".UserMenuActivity">
             <meta-data
