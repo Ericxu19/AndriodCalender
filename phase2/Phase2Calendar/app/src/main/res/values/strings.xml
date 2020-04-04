@@ -37,4 +37,6 @@
     <string name="enddate">Enter end date</string>
     <string name="startdate">Enter start date</string>
 
+    <string name="messages">Messages</string>
+
 </resources>
