@@ -5,13 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.phase2calendar.logic.Memo;
 import com.example.phase2calendar.logic.User;
 
 public class MemoListActivity extends AppCompatActivity {
+
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,15 +19,18 @@ public class MemoListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_memo_list);
 
         Intent intent = getIntent();
-        User user = (User) intent.getSerializableExtra("currentUser");
+        this.user = (User) intent.getSerializableExtra("currentUser");
 
-        Button memoBack = findViewById(R.id.memoBack);
-        memoBack.setOnClickListener(v -> {
-            Intent memoGoBack = new Intent(getApplicationContext(), MenuActivity.class);
-            memoGoBack.putExtra("currentUser", user);
-            startActivity(memoGoBack);
-        });
+        //Creates back button
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        Intent back = new Intent(this, MenuActivity.class);
+        back.putExtra("currentUser", user);
+        startActivity(back);
+        return true;
     }
 
     public void goToMemo(View view) {

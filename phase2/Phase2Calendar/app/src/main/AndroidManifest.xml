@@ -9,11 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EventActivity"></activity>
-        <activity android:name=".NewMemoActivity" />
+        <activity android:name=".AlertMenu"></activity>
+        <activity
+            android:name=".EventActivity"
+            android:parentActivityName=".MenuActivity" />
+        <activity
+            android:name=".NewMemoActivity"
+            android:parentActivityName=".MenuActivity" />
         <activity android:name=".MemoActivity" />
         <activity android:name=".MessagesActivity" />
-        <activity android:name=".MemoListActivity" />
+        <activity
+            android:name=".MemoListActivity" />
         <activity
             android:name=".MainMenuActivity"
             android:label="@string/calendars"
@@ -46,9 +52,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity
-            android:name=".MenuActivity"
-            android:parentActivityName=".LoginActivity" />
+        <activity android:name=".MenuActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
