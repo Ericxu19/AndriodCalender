@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -30,6 +31,9 @@ public class UserMenuActivity extends AppCompatActivity {
         currentUser.setContext(getApplicationContext());
         UserWriter userWriter = new UserWriter();
         currentUser.addObserver(userWriter);
+
+        TextView title = findViewById(R.id.welcome_view);
+        title.setText("Welcome, " + currentUser.getUsername() + "!");
 
         LocalDateTime now = LocalDateTime.now();
         alerts = currentUser.raiseAllAlerts(now);

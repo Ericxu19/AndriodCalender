@@ -9,35 +9,32 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".ViewEventFromMessageActivity">
+        </activity>
+        <activity android:name=".ComposeMessageActivity">
+        </activity>
         <activity android:name=".NewAlertsActivity">
         </activity>
-
-        <activity android:name=".UserMenuActivity"
-                    android:parentActivityName=".LoginActivity">
+        <activity
+                android:name=".UserMenuActivity"
+                android:parentActivityName=".LoginActivity">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value=".LoginActivity"/>
         </activity>
-
         <activity android:name=".EventActivity"/>
-
         <activity android:name=".NewMemoActivity"/>
-
         <activity android:name=".MemoActivity"/>
-
-        <activity android:name=".AlertMenu" />
-
-        <activity android:name=".NewAlertActivity" />
-
-        <activity android:name=".MessagesActivity"
-                  android:parentActivityName=".UserMenuActivity">
+        <activity android:name=".AlertMenu"/>
+        <activity android:name=".NewAlertActivity"/>
+        <activity
+                android:name=".MessagesActivity"
+                android:parentActivityName=".UserMenuActivity">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value=".UserMenuActivity"/>
         </activity>
-
         <activity android:name=".MemoListActivity"/>
-
         <activity
                 android:name=".MainMenuActivity"
                 android:label="@string/calendars"
@@ -46,7 +43,6 @@
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value=".UserMenuActivity"/>
         </activity>
-
         <activity
                 android:name=".RegisterActivity"
                 android:label="@string/button_register"
@@ -55,7 +51,6 @@
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value=".MainActivity"/>
         </activity>
-
         <activity
                 android:name=".LoginActivity"
                 android:label="@string/button_login"
@@ -64,7 +59,6 @@
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value=".MainActivity"/>
         </activity>
-
         <activity
                 android:name=".RegisteredActivity"
                 android:label="Registered!"
@@ -73,11 +67,9 @@
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value=".MainActivity"/>
         </activity>
-
         <activity
                 android:name=".MenuActivity"
                 android:parentActivityName=".LoginActivity"/>
-
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.DayOfWeek;
 
-public class Series implements Serializable, Nameable {
+public class Series implements Serializable, Listable {
 
     private String name;
     private String description;

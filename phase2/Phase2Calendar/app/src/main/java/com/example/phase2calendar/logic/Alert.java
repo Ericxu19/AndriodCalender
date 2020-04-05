@@ -3,7 +3,7 @@ package com.example.phase2calendar.logic;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class Alert implements Serializable, Nameable {
+public class Alert implements Serializable, Listable {
 
     private String description;
     private String name;

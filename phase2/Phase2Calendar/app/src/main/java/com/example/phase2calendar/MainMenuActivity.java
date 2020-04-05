@@ -67,4 +67,12 @@ public class MainMenuActivity extends AppCompatActivity implements CalendarCreat
         currentUser.addCalendar(cal);
         adapter.notifyItemInserted(currentUser.getCalendarsList().size()-1);
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        Intent back = new Intent(this, UserMenuActivity.class);
+        back.putExtra("currentUser", currentUser);
+        startActivity(back);
+        return true;
+    }
 }

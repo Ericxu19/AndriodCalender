@@ -11,13 +11,14 @@ public class LoginValidator {
         boolean exists = userFile.exists();
         if (!exists) return null;
         User user = instantiateUser(userFile);
+        if(user == null) return user;
         if (user.getPassword().equals(password)) {
             return user;
         }
         return null;
     }
 
-    private User instantiateUser(File userFile) {
+    public User instantiateUser(File userFile) {
         User user = null;
         try {
             // Reading the object from a file

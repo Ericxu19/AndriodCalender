@@ -36,6 +36,10 @@ public class Message implements Serializable {
     }
 
     public boolean hasEvent() {
-        return null == this.event;
+        return null != this.event;
+    }
+
+    public Event getEvent() {
+        return this.event;
     }
 }

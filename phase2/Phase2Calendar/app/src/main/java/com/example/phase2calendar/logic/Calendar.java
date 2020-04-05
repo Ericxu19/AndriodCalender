@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.time.LocalDateTime;
 
-public class Calendar implements Serializable, Nameable {
+public class Calendar implements Serializable, Listable {
 
     private String name;
     private String description;

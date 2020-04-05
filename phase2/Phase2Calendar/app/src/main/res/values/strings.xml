@@ -38,5 +38,9 @@
     <string name="startdate">Enter start date</string>
 
     <string name="messages">Messages</string>
+    <string name="recipient">Recipient</string>
+    <string name="content">Content</string>
+    <string name="selectEventToAttach">Select Event to Attach</string>
+    <string name="send">Send</string>
 
 </resources>

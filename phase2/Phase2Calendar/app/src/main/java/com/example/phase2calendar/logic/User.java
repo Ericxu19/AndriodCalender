@@ -152,10 +152,12 @@ public class User extends Observable implements Serializable {
 
     public void addMessage(Message message){
         messagesList.add(message);
+        signalChanges();
     }
 
     public void deleteMessage(Message message){
         messagesList.remove(message);
+        signalChanges();
     }
 
     public void sendMessage(Message message, User recipient){
