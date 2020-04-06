@@ -42,5 +42,7 @@
     <string name="content">Content</string>
     <string name="selectEventToAttach">Select Event to Attach</string>
     <string name="send">Send</string>
+    <string name="addEvent">Add Event</string>
+    <string name="title_activity_select_calendar_to_add_event">SelectCalendarToAddEventActivity</string>
 
 </resources>

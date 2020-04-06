@@ -59,6 +59,7 @@ public class MessagesActivity extends AppCompatActivity {
                 Intent intent = new Intent(MessagesActivity.this, ViewEventFromMessageActivity.class);
                 intent.putExtra("currentUser", currentUser);
                 intent.putExtra("currentEvent", currentUser.getMessagesList().get(i).getEvent());
+                intent.putExtra("senderName", currentUser.getMessagesList().get(i).getSender().getUsername());
                 startActivity(intent);
             }
         });
