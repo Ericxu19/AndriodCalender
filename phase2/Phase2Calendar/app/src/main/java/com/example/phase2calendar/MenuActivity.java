@@ -25,7 +25,6 @@ public class MenuActivity extends AppCompatActivity {
         Intent intent = getIntent();
         this.user = (User) intent.getSerializableExtra("currentUser");
         Calendar calendar = (Calendar) intent.getSerializableExtra("currentCalendar");
-        user.addCalendar(calendar);
 
         //Creates the back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
