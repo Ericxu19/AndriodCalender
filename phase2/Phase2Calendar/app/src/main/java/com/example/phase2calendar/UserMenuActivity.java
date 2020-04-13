@@ -57,7 +57,7 @@ public class UserMenuActivity extends AppCompatActivity {
     public void showAlerts(View view){
         Intent intent = new Intent(this, NewAlertsActivity.class);
         intent.putExtra("currentUser", currentUser);
-        intent.putExtra("alerts", alerts);
+        intent.putExtra("newAlerts", alerts);
         startActivity(intent);
     }
 }
