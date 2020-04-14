@@ -44,5 +44,16 @@
     <string name="send">Send</string>
     <string name="addEvent">Add Event</string>
     <string name="title_activity_select_calendar_to_add_event">SelectCalendarToAddEventActivity</string>
+    <string name="new_event">New Event</string>
+    <string name="startdateddmmyyyy">Start Date (dd/mm/yyyy)</string>
+    <string name="enddateddmmyyyy">End Date (dd/mm/yyyy)</string>
+    <string name="starttimehhmm">Start Time (hh/mm)</string>
+    <string name="endtimehhmm">End Time (hh/mm)</string>
+    <string name="dd">dd</string>
+    <string name="mm">MM</string>
+    <string name="mm_lowercase">mm</string>
+    <string name="hh">hh</string>
+    <string name="yyyy">yyyy</string>
+    <string name="colon">:</string>
 
 </resources>

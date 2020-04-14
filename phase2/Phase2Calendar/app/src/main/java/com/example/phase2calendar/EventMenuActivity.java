@@ -1,52 +1,56 @@
 package com.example.phase2calendar;
 
 import android.content.Intent;
-import android.os.Build;
 import android.view.View;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.phase2calendar.adapters.GenericAdapter;
-import com.example.phase2calendar.adapters.MessageAdapter;
 import com.example.phase2calendar.dialogs.CalendarCreationDialog;
-import com.example.phase2calendar.logic.*;
+import com.example.phase2calendar.dialogs.EventCreationDialog;
+import com.example.phase2calendar.logic.Calendar;
+import com.example.phase2calendar.logic.Event;
+import com.example.phase2calendar.logic.User;
+import com.example.phase2calendar.logic.UserWriter;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public class MainMenuActivity extends AppCompatActivity implements CalendarCreationDialog.CalendarCreationDialogListener {
+public class EventMenuActivity extends AppCompatActivity implements EventCreationDialog.EventCreationDialogListener {
 
     private RecyclerView recyclerView;
     private GenericAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
 
     private User currentUser;
+    private Calendar currentCalendar;
+    private int currentCalendarIndex;
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_menu);
+        setContentView(R.layout.activity_event_menu);
 
         setCurrentUser();
         setRecyclerView();
     }
 
-    public void setCurrentUser() {
+    private void setCurrentUser() {
         Intent intent = getIntent();
         currentUser = (User) intent.getSerializableExtra("currentUser");
         currentUser.setContext(getApplicationContext());
         UserWriter userWriter = new UserWriter();
         currentUser.addObserver(userWriter);
+        currentCalendarIndex = (int) intent.getSerializableExtra("currentCalendarIndex");
+        currentCalendar = currentUser.getCalendar(currentCalendarIndex);
     }
 
-    public void setRecyclerView() {
+    private void setRecyclerView() {
         this.recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         this.layoutManager = new LinearLayoutManager(this);
-        this.adapter = new GenericAdapter((ArrayList) currentUser.getCalendarsList());
+        this.adapter = new GenericAdapter((ArrayList) currentUser.getEventsFromCalendar(currentCalendar));
 
         recyclerView.setLayoutManager(this.layoutManager);
         recyclerView.setAdapter(this.adapter);
@@ -54,30 +58,33 @@ public class MainMenuActivity extends AppCompatActivity implements CalendarCreat
         adapter.setOnClickListener(new GenericAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int i) {
-                Intent newIntent = new Intent(MainMenuActivity.this, MenuActivity.class);
-                newIntent.putExtra("currentCalendarIndex", i);
+                Intent newIntent = new Intent(EventMenuActivity.this, ViewEventDetailsActivity.class);
+                Event currentEvent = currentUser.getEventsFromCalendar(currentCalendar).get(i);
+                newIntent.putExtra("currentCalendar", currentCalendar);
                 newIntent.putExtra("currentUser", currentUser);
+                newIntent.putExtra("currentEvent", currentEvent);
                 startActivity(newIntent);
             }
         });
     }
 
     public void openDialog(View view) {
-        CalendarCreationDialog dialog = new CalendarCreationDialog();
-        dialog.show(getSupportFragmentManager(), "calendar creation dialog");
+        EventCreationDialog dialog = new EventCreationDialog();
+        dialog.show(getSupportFragmentManager(), "event creation dialog");
     }
 
     @Override
-    public void createCalendar(String title, String description) {
-        Calendar cal = new Calendar(title, description);
-        currentUser.addCalendar(cal);
-        adapter.notifyItemInserted(currentUser.getCalendarsList().size()-1);
+    public void createEvent(String title, String description, LocalDateTime startTime, LocalDateTime endTime) {
+        Event event = new Event(title, description, startTime, endTime);
+        currentUser.addEventToCalendar(event, currentCalendar);
+        adapter.notifyItemInserted(currentUser.getEventsFromCalendar(currentCalendar).size()-1);
     }
 
     @Override
     public boolean onSupportNavigateUp() {
-        Intent back = new Intent(this, UserMenuActivity.class);
+        Intent back = new Intent(this, MenuActivity.class);
         back.putExtra("currentUser", currentUser);
+        back.putExtra("currentCalendarIndex", currentCalendarIndex);
         startActivity(back);
         return true;
     }

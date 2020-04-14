@@ -15,6 +15,8 @@ import com.example.phase2calendar.logic.Calendar;
 public class MenuActivity extends AppCompatActivity {
 
     private User user;
+    private Calendar currentCalendar;
+    private int currentCalendarIndex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,15 +25,13 @@ public class MenuActivity extends AppCompatActivity {
 
         //Gets the User object and creates the Calender around it
         Intent intent = getIntent();
-        this.user = (User) intent.getSerializableExtra("currentUser");
-        Calendar calendar = (Calendar) intent.getSerializableExtra("currentCalendar");
-
-        //Creates the back button
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        user = (User) intent.getSerializableExtra("currentUser");
+        currentCalendarIndex = (int) intent.getSerializableExtra("currentCalendarIndex");
+        currentCalendar = user.getCalendar(currentCalendarIndex);
 
         //Updates the page with the info from the Calender
-        TextView textView = findViewById(R.id.textView6);
-        textView.setText(R.string.calendar);
+       TextView textView = findViewById(R.id.textView6);
+        textView.setText(currentCalendar.getName());
 
     }
 
@@ -45,7 +45,6 @@ public class MenuActivity extends AppCompatActivity {
 
     public void memoMenu(View view)
     {
-        Button memo = findViewById(R.id.memos);
         Intent goToMemos = new Intent(getApplicationContext(), MemoListActivity.class);
         goToMemos.putExtra("currentUser", user);
         startActivity(goToMemos);
@@ -53,15 +52,14 @@ public class MenuActivity extends AppCompatActivity {
 
     public void eventMenu(View view)
     {
-        Button event_butt = findViewById(R.id.event);
-        Intent goToEvents = new Intent(getApplicationContext(), EventActivity.class);
+        Intent goToEvents = new Intent(getApplicationContext(), EventMenuActivity.class);
+        goToEvents.putExtra("currentCalendarIndex", currentCalendarIndex);
         goToEvents.putExtra("currentUser", user);
         startActivity(goToEvents);
     }
 
     public void alertMenu(View view)
     {
-        Button alert = findViewById(R.id.alert);
         Intent goToAlert = new Intent(getApplicationContext(), AlertMenu.class);
         goToAlert.putExtra("currentUser", user);
         startActivity(goToAlert);

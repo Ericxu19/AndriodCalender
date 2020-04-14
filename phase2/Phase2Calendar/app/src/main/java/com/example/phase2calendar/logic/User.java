@@ -30,6 +30,10 @@ public class User extends Observable implements Serializable {
         clearChanged();
     }
 
+    public Calendar getCalendar(int i) {
+        return calendarsList.get(i);
+    }
+
     public String getUsername() {
         return username;
     }

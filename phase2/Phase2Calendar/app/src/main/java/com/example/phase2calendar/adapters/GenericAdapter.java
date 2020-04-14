@@ -92,13 +92,13 @@ public class GenericAdapter extends RecyclerView.Adapter<GenericAdapter.GenericV
         if(null == start){
             genericViewHolder.startView.setVisibility(View.GONE);
         } else {
-            genericViewHolder.startView.setText(dateFormatConverter.convertLocalDateTime(start));
+            genericViewHolder.startView.setText("Start: " + dateFormatConverter.convertLocalDateTime(start));
         }
 
         if(null == end){
             genericViewHolder.endView.setVisibility(View.GONE);
         } else {
-            genericViewHolder.endView.setText(dateFormatConverter.convertLocalDateTime(end));
+            genericViewHolder.endView.setText("End: " + dateFormatConverter.convertLocalDateTime(end));
         }
     }
 

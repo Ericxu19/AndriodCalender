@@ -9,10 +9,18 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".ViewEventDetailsActivity">
+        </activity>
+        <activity
+                android:name=".EventMenuActivity"
+                android:parentActivityName=".MenuActivity">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".MenuActivity"/>
+        </activity>
         <activity
                 android:name=".SelectCalendarToAddEventActivity"
-                android:label="@string/title_activity_select_calendar_to_add_event"
-                android:theme="@style/AppTheme.NoActionBar">
+                android:label="@string/title_activity_select_calendar_to_add_event">
         </activity>
         <activity android:name=".ViewEventFromMessageActivity">
         </activity>
