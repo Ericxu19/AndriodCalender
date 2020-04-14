@@ -100,6 +100,32 @@ public class EventCreationDialog extends AppCompatDialogFragment {
         endHour = view.findViewById(R.id.end_hour);
         endMinute = view.findViewById(R.id.end_minute);
 
+        if(getArguments().get("title") != null){
+            editTitle.setText(getArguments().get("title").toString());
+        }
+
+        if(getArguments().get("description") != null){
+            editDescription.setText(getArguments().get("description").toString());
+        }
+
+        if(getArguments().get("startTime") != null){
+            LocalDateTime start = (LocalDateTime) getArguments().get("startTime");
+            startDay.setText(Integer.toString(start.getDayOfMonth()));
+            startMonth.setText(Integer.toString(start.getMonth().getValue()));
+            startYear.setText(Integer.toString(start.getYear()));
+            startHour.setText(Integer.toString(start.getHour()));
+            startMinute.setText(Integer.toString(start.getMinute()));
+        }
+
+        if(getArguments().get("endTime") != null){
+            LocalDateTime end = (LocalDateTime) getArguments().get("endTime");
+            endDay.setText(Integer.toString(end.getDayOfMonth()));
+            endMonth.setText(Integer.toString(end.getMonth().getValue()));
+            endYear.setText(Integer.toString(end.getYear()));
+            endHour.setText(Integer.toString(end.getHour()));
+            endMinute.setText(Integer.toString(end.getMinute()));
+        }
+
         return builder.create();
     }
 

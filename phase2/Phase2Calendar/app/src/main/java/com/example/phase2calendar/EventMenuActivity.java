@@ -60,9 +60,9 @@ public class EventMenuActivity extends AppCompatActivity implements EventCreatio
             public void onItemClick(int i) {
                 Intent newIntent = new Intent(EventMenuActivity.this, ViewEventDetailsActivity.class);
                 Event currentEvent = currentUser.getEventsFromCalendar(currentCalendar).get(i);
-                newIntent.putExtra("currentCalendar", currentCalendar);
+                newIntent.putExtra("currentCalendarIndex", currentCalendarIndex);
                 newIntent.putExtra("currentUser", currentUser);
-                newIntent.putExtra("currentEvent", currentEvent);
+                newIntent.putExtra("currentEventIndex", i);
                 startActivity(newIntent);
             }
         });
@@ -70,6 +70,8 @@ public class EventMenuActivity extends AppCompatActivity implements EventCreatio
 
     public void openDialog(View view) {
         EventCreationDialog dialog = new EventCreationDialog();
+        Bundle args = new Bundle();
+        dialog.setArguments(args);
         dialog.show(getSupportFragmentManager(), "event creation dialog");
     }
 

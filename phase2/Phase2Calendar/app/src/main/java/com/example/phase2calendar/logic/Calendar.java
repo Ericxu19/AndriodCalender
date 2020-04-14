@@ -40,6 +40,14 @@ public class Calendar implements Serializable, Listable {
         eventsList.remove(event);
     }
 
+    public void editEvent(Event event, String title, String description, LocalDateTime startTime, LocalDateTime endTime) {
+        event = eventsList.get(eventsList.indexOf(event));
+        event.setName(title);
+        event.setDescription(description);
+        event.setStartTime(startTime);
+        event.setEndTime(endTime);
+    }
+
     public ArrayList<Event> getEvents(){
         return this.eventsList;
     }

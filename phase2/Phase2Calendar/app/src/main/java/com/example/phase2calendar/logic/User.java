@@ -67,6 +67,12 @@ public class User extends Observable implements Serializable {
         return calendar.getEvents();
     }
 
+    public void editEventInCalendar(Calendar calendar, Event event, String name, String description, LocalDateTime startTime, LocalDateTime endTime) {
+        calendar = calendarsList.get(calendarsList.indexOf(calendar));
+        calendar.editEvent(event, name, description, startTime, endTime);
+        signalChanges();
+    }
+
     public ArrayList<Event> getAllEvents() {
         ArrayList<Event> returnList = new ArrayList<>();
         for(Calendar calendar:calendarsList){

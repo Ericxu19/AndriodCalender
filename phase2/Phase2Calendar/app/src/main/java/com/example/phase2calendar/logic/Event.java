@@ -39,6 +39,14 @@ public class Event implements Serializable, Listable {
         return endTime;
     }
 
+    public void setName(String name) { this.name = name; }
+
+    public void setDescription(String description) { this.description = description; }
+
+    public void setStartTime(LocalDateTime startTime) { this.startTime = startTime; }
+
+    public void setEndTime(LocalDateTime endTime) { this.endTime = endTime; }
+
     public void addAttachment(Attachment att){
         attachments.add(att);
     }

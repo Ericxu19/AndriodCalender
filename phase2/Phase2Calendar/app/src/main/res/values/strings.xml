@@ -55,5 +55,12 @@
     <string name="hh">hh</string>
     <string name="yyyy">yyyy</string>
     <string name="colon">:</string>
+    <string name="edit_event">Edit Event</string>
+    <string name="delete_event">Delete Event</string>
+    <string name="view_tags">View Tags</string>
+    <string name="add_tag">Add Tag</string>
+    <string name="add_an_alert">Add an Alert</string>
+    <string name="add_many_alerts">Add many Alerts</string>
+    <string name="view_memo">View Memo</string>
 
 </resources>
