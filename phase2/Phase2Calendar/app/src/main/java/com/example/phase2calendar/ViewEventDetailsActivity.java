@@ -56,8 +56,8 @@ public class ViewEventDetailsActivity extends AppCompatActivity implements Event
         DateFormatConverter converter = new DateFormatConverter();
 
         titleView.setText(currentEvent.getName());
-        startView.setText(converter.convertLocalDateTime(currentEvent.getStartTime()));
-        endView.setText(converter.convertLocalDateTime(currentEvent.getEndTime()));
+        startView.setText("Starts: " + converter.convertLocalDateTime(currentEvent.getStartTime()));
+        endView.setText("Ends: " + converter.convertLocalDateTime(currentEvent.getEndTime()));
         descriptionView.setText(currentEvent.getDescription());
     }
 
@@ -90,6 +90,14 @@ public class ViewEventDetailsActivity extends AppCompatActivity implements Event
 
     public void openShowTags(View view) {
         Intent intent = new Intent(this, ShowTagsActivity.class);
+        intent.putExtra("currentUser", currentUser);
+        intent.putExtra("currentCalendarIndex", currentCalendarIndex);
+        intent.putExtra("currentEventIndex", currentEventIndex);
+        startActivity(intent);
+    }
+
+    public void openManageAlerts(View view) {
+        Intent intent = new Intent(this, ManageAlertsActivity.class);
         intent.putExtra("currentUser", currentUser);
         intent.putExtra("currentCalendarIndex", currentCalendarIndex);
         intent.putExtra("currentEventIndex", currentEventIndex);

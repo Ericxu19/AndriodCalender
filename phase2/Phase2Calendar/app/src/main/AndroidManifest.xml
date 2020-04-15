@@ -3,16 +3,35 @@
     package="com.example.phase2calendar">
 
     <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".LinkMemoActivity"></activity>
-        <activity android:name=".MemoEventsActivity" />
-        <activity android:name=".ViewMemoDetailsActivity" />
-        <activity android:name=".ViewEventDetailsActivity" />
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme">
+        <activity android:name=".ViewAlertInfoActivity">
+        </activity>
+        <activity
+                android:name=".ManageAlertsActivity"
+                android:parentActivityName=".ViewEventDetailsActivity">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".ViewEventDetailsActivity"/>
+        </activity>
+        <activity
+                android:name=".ShowTagsActivity"
+                android:parentActivityName=".ViewEventDetailsActivity">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".ViewEventDetailsActivity"/>
+        </activity>
+        <activity
+                android:name=".ViewEventDetailsActivity"
+                android:parentActivityName=".EventMenuActivity">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".EventMenuActivity"/>
+        </activity>
         <activity
             android:name=".EventMenuActivity"
             android:parentActivityName=".MenuActivity">
@@ -21,23 +40,28 @@
                 android:value=".MenuActivity" />
         </activity>
         <activity
-            android:name=".SelectCalendarToAddEventActivity"
-            android:label="@string/title_activity_select_calendar_to_add_event" />
-        <activity android:name=".ViewEventFromMessageActivity" />
-        <activity android:name=".ComposeMessageActivity" />
-        <activity android:name=".NewAlertsActivity" />
+                android:name=".SelectCalendarToAddEventActivity"
+                android:label="@string/title_activity_select_calendar_to_add_event">
+        </activity>
+        <activity android:name=".ViewEventFromMessageActivity">
+        </activity>
+        <activity android:name=".ComposeMessageActivity">
+        </activity>
+        <activity android:name=".NewAlertsActivity">
+        </activity>
         <activity
             android:name=".UserMenuActivity"
             android:parentActivityName=".LoginActivity">
             <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".LoginActivity" />
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".LoginActivity"/>
         </activity>
-        <activity android:name=".EventActivity" />
-        <activity android:name=".NewMemoActivity" />
-        <activity android:name=".MemoActivity" />
-        <activity android:name=".AlertMenu" />
-        <activity android:name=".NewAlertActivity" />
+        <activity android:name=".EventActivity"/>
+        <activity android:name=".NewMemoActivity"/>
+        <activity android:name=".MemoActivity"/>
+        <activity android:name=".AlertMenu"/>
+        <activity android:name=".NewAlertActivity"/>
+
         <activity
             android:name=".MessagesActivity"
             android:parentActivityName=".UserMenuActivity">
@@ -45,7 +69,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".UserMenuActivity" />
         </activity>
-        <activity android:name=".MemoListActivity" />
+        <activity android:name=".MemoListActivity"/>
         <activity
             android:name=".MainMenuActivity"
             android:label="@string/calendars"
