@@ -29,16 +29,12 @@
               android:layout_below="@id/end_view" android:id="@+id/description_view"/>
 
     <Button android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:layout_above="@+id/add_tag_button" android:layout_centerHorizontal="true"
+            android:layout_above="@+id/view_tags_button" android:layout_centerHorizontal="true"
             android:id="@+id/edit_event_button" android:text="@string/edit_event" android:onClick="openDialog"/>
 
     <Button android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:layout_above="@+id/view_tags_button" android:layout_centerHorizontal="true"
-            android:id="@+id/add_tag_button" android:text="@string/add_tag"/>
-
-    <Button android:layout_width="match_parent" android:layout_height="wrap_content"
             android:layout_above="@+id/add_an_alert_button" android:layout_centerHorizontal="true"
-            android:id="@+id/view_tags_button" android:text="@string/view_tags"/>
+            android:id="@+id/view_tags_button" android:text="@string/view_tags" android:onClick="openShowTags"/>
 
     <Button android:layout_width="match_parent" android:layout_height="wrap_content"
             android:layout_above="@+id/add_many_alerts_button" android:layout_centerHorizontal="true"

@@ -4,10 +4,12 @@ import android.content.Intent;
 import android.os.Build;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.phase2calendar.dialogs.EventCreationDialog;
+import com.example.phase2calendar.dialogs.TagCreationDialog;
 import com.example.phase2calendar.logic.*;
 
 import java.time.LocalDateTime;
@@ -86,6 +88,14 @@ public class ViewEventDetailsActivity extends AppCompatActivity implements Event
         startActivity(intent);
     }
 
+    public void openShowTags(View view) {
+        Intent intent = new Intent(this, ShowTagsActivity.class);
+        intent.putExtra("currentUser", currentUser);
+        intent.putExtra("currentCalendarIndex", currentCalendarIndex);
+        intent.putExtra("currentEventIndex", currentEventIndex);
+        startActivity(intent);
+    }
+
     @Override
     public boolean onSupportNavigateUp() {
         Intent back = new Intent(this, EventMenuActivity.class);
@@ -94,4 +104,5 @@ public class ViewEventDetailsActivity extends AppCompatActivity implements Event
         startActivity(back);
         return true;
     }
+
 }
