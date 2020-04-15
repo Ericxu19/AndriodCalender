@@ -45,7 +45,7 @@ public class MenuActivity extends AppCompatActivity {
 
     public void memoMenu(View view)
     {
-        Intent goToMemos = new Intent(getApplicationContext(), MemoListActivity.class);
+        Intent goToMemos = new Intent(this, MemoListActivity.class);
         goToMemos.putExtra("currentCalendarIndex", currentCalendarIndex);
         goToMemos.putExtra("currentUser", user);
         startActivity(goToMemos);
@@ -53,15 +53,21 @@ public class MenuActivity extends AppCompatActivity {
 
     public void eventMenu(View view)
     {
-        Intent goToEvents = new Intent(getApplicationContext(), EventMenuActivity.class);
+        Intent goToEvents = new Intent(this, EventMenuActivity.class);
         goToEvents.putExtra("currentCalendarIndex", currentCalendarIndex);
         goToEvents.putExtra("currentUser", user);
         startActivity(goToEvents);
     }
 
+    public void seriesMenu(View view) {
+        Intent intent = new Intent(this, SeriesListActivity.class);
+        intent.putExtra("currentUser", user);
+        intent.putExtra("currentCalendarIndex", currentCalendarIndex);
+    }
+
     public void alertMenu(View view)
     {
-        Intent goToAlert = new Intent(getApplicationContext(), AlertMenu.class);
+        Intent goToAlert = new Intent(this, AlertMenu.class);
         goToAlert.putExtra("currentUser", user);
         startActivity(goToAlert);
     }

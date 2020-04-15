@@ -82,6 +82,17 @@ public class Event implements Serializable, Listable {
         return this.alertHandler.getAllAlerts();
     }
 
+    public void editAlert(Alert alert, String name, String description, LocalDateTime startTime){
+        alert = alertHandler.getAlerts().get(alertHandler.getAlerts().indexOf(alert));
+        alert.setName(name);
+        alert.setDescription(description);
+        alert.setStartTime(startTime);
+    }
+
+    public void deleteAlert(Alert alert) {
+        alertHandler.deleteAlert(alert);
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     public ArrayList<Alert> raiseAlerts(LocalDateTime now) {
         return alertHandler.raiseAlerts(now);

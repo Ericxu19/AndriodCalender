@@ -35,6 +35,8 @@ public class AlertHandler implements Serializable {
         return alerts;
     }
 
+    public void deleteAlert(Alert alert) { alerts.remove(alert); }
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     public ArrayList<Alert> raiseAlerts(LocalDateTime now) {
         ArrayList<Alert> out = new ArrayList<>();

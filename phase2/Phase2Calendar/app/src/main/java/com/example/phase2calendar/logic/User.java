@@ -1,6 +1,8 @@
 package com.example.phase2calendar.logic;
 
 import android.content.Context;
+import android.os.Build;
+import androidx.annotation.RequiresApi;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -152,6 +154,21 @@ public class User extends Observable implements Serializable {
         signalChanges();
     }
 
+    public void editAlertInEventInCalendar(Event event, Alert alert, Calendar calendar, String name, String description, LocalDateTime startTime) {
+        calendar = calendarsList.get(calendarsList.indexOf(calendar));
+        event = calendar.getEvents().get(calendar.getEvents().indexOf(event));
+        event.editAlert(alert, name, description, startTime);
+        signalChanges();
+    }
+
+    public void deleteAlert(Event event, Alert alert, Calendar calendar) {
+        calendar = calendarsList.get(calendarsList.indexOf(calendar));
+        event = calendar.getEvents().get(calendar.getEvents().indexOf(event));
+        event.deleteAlert(alert);
+        signalChanges();
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public ArrayList<Alert> raiseAllAlerts(LocalDateTime now) {
         ArrayList<Alert> list = new ArrayList<Alert>();
         for(Calendar c:calendarsList){

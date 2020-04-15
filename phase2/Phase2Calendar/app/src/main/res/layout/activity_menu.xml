@@ -25,15 +25,20 @@
             android:layout_centerHorizontal="true" android:layout_marginBottom="16dp"
             android:layout_below="@+id/textView6"/>
 
+    <Button android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true" android:onClick="seriesMenu" android:layout_below="@+id/event"
+            android:id="@+id/series" android:text="Series" android:layout_marginBottom="16dp"/>
+
     <Button
-            android:id="@+id/memos"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="memoMenu"
-            android:text="Memos"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/event"
-            android:layout_marginBottom="184dp"/>
+        android:id="@+id/memos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="memoMenu"
+        android:text="Memos"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/series"
+        android:layout_marginBottom="184dp"/>
+
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"

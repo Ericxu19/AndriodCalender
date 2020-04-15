@@ -19,14 +19,20 @@ public class Alert implements Serializable, Listable {
         return time;
     }
 
+    public void setStartTime(LocalDateTime startTime) { this.time = startTime; }
+
     public LocalDateTime getEndTime(){ return null; }
 
     public String getDescription() {
         return description;
     }
 
+    public void setDescription(String description) { this.description = description; }
+
     public String getName() {
         return name;
     }
+
+    public void setName(String name) { this.name = name; }
 
 }
