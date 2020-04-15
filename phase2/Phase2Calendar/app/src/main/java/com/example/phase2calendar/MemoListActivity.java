@@ -1,51 +1,101 @@
 package com.example.phase2calendar;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.example.phase2calendar.adapters.GenericAdapter;
+import com.example.phase2calendar.dialogs.EventCreationDialog;
+import com.example.phase2calendar.dialogs.MemoCreationDialog;
+import com.example.phase2calendar.logic.Calendar;
+import com.example.phase2calendar.logic.Event;
+import com.example.phase2calendar.logic.Memo;
 import com.example.phase2calendar.logic.User;
+import com.example.phase2calendar.logic.UserWriter;
 
-public class MemoListActivity extends AppCompatActivity {
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 
-    private User user;
+public class MemoListActivity extends AppCompatActivity implements MemoCreationDialog.MemoCreationDialogListener{
+
+    private RecyclerView recyclerView;
+    private GenericAdapter adapter;
+    private RecyclerView.LayoutManager layoutManager;
+
+    private User currentUser;
+    private Calendar currentCalendar;
+    private int currentCalendarIndex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_memo_list);
 
-        Intent intent = getIntent();
-        this.user = (User) intent.getSerializableExtra("currentUser");
+        setCurrentUser();
+        setRecyclerView();
+    }
 
-        //Creates back button
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    private void setCurrentUser() {
+        Intent intent = getIntent();
+        currentUser = (User) intent.getSerializableExtra("currentUser");
+        currentUser.setContext(getApplicationContext());
+        UserWriter userWriter = new UserWriter();
+        currentUser.addObserver(userWriter);
+        currentCalendarIndex = (int) intent.getSerializableExtra("currentCalendarIndex");
+        currentCalendar = currentUser.getCalendar(currentCalendarIndex);
+    }
+
+    private void setRecyclerView() {
+        this.recyclerView = findViewById(R.id.recyclerViewMemo);
+        recyclerView.setHasFixedSize(true);
+        this.layoutManager = new LinearLayoutManager(this);
+        this.adapter = new GenericAdapter((ArrayList) currentUser.getMemosFromCalendar(currentCalendar));
+
+        recyclerView.setLayoutManager(this.layoutManager);
+        recyclerView.setAdapter(this.adapter);
+
+        adapter.setOnClickListener(new GenericAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int i) {
+                Intent newIntent = new Intent(MemoListActivity.this, ViewMemoDetailsActivity.class);
+                Memo currentMemo = currentUser.getMemosFromCalendar(currentCalendar).get(i);
+                newIntent.putExtra("currentCalendarIndex", currentCalendarIndex);
+                newIntent.putExtra("currentUser", currentUser);
+                newIntent.putExtra("currentMemoIndex", i);
+                startActivity(newIntent);
+            }
+        });
+    }
+
+    public void openDialog(View view) {
+        MemoCreationDialog dialog = new MemoCreationDialog();
+        Bundle args = new Bundle();
+        dialog.setArguments(args);
+        dialog.show(getSupportFragmentManager(), "memo creation dialog");
+    }
+
+    @Override
+    public void createMemo(String title, String description) {
+        Memo memo = new Memo(title, description);
+        currentUser.addMemoToCalendar(memo, currentCalendar);
+        adapter.notifyItemInserted(currentUser.getMemosFromCalendar(currentCalendar).size()-1);
     }
 
     @Override
     public boolean onSupportNavigateUp() {
         Intent back = new Intent(this, MenuActivity.class);
-        back.putExtra("currentUser", user);
+        back.putExtra("currentUser", currentUser);
+        back.putExtra("currentCalendarIndex", currentCalendarIndex);
         startActivity(back);
         return true;
     }
 
-    public void goToMemo(View view) {
-        EditText memoNum = findViewById(R.id.memoNum);
-        int memoInt = Integer.parseInt(memoNum.getText().toString());
-        Intent toMemo = new Intent(this, MemoActivity.class);
-        toMemo.putExtra("memoNum", memoInt);
-        startActivity(toMemo);
-    }
 
-    public void newMemo(View view) {
-        Intent newMemo = new Intent(this, NewMemoActivity.class);
-        Intent intent = getIntent();
-        User user = (User) intent.getSerializableExtra("currentUser");
-        newMemo.putExtra("user", user);
-        startActivity(newMemo);
-    }
+
+
 }

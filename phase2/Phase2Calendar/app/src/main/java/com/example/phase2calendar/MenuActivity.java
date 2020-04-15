@@ -46,6 +46,7 @@ public class MenuActivity extends AppCompatActivity {
     public void memoMenu(View view)
     {
         Intent goToMemos = new Intent(getApplicationContext(), MemoListActivity.class);
+        goToMemos.putExtra("currentCalendarIndex", currentCalendarIndex);
         goToMemos.putExtra("currentUser", user);
         startActivity(goToMemos);
     }
