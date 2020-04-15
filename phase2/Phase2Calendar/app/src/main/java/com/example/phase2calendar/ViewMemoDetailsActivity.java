@@ -18,6 +18,7 @@ import com.example.phase2calendar.logic.Memo;
 import com.example.phase2calendar.logic.User;
 import com.example.phase2calendar.logic.UserWriter;
 
+import java.nio.channels.InterruptedByTimeoutException;
 import java.time.LocalDateTime;
 
 public class ViewMemoDetailsActivity extends AppCompatActivity{
@@ -69,9 +70,19 @@ public class ViewMemoDetailsActivity extends AppCompatActivity{
         dialog.setArguments(args);
         dialog.show(getSupportFragmentManager(), "memo creation dialog");
     }
-
+    public void linkEvent(View view){
+        Intent intent = new Intent(this, LinkMemoActivity.class);
+        intent.putExtra("currentUser", currentUser);
+        intent.putExtra("currentCalendarIndex", currentCalendarIndex);
+        intent.putExtra("currentMemoIndex", currentMemoIndex);
+        startActivity(intent);
+    }
     public void viewEvents(View view){
-
+        Intent intent = new Intent(this, MemoEventsActivity.class);
+        intent.putExtra("currentUser", currentUser);
+        intent.putExtra("currentCalendarIndex", currentCalendarIndex);
+        intent.putExtra("currentMemoIndex", currentMemoIndex);
+        startActivity(intent);
     }
 
     public void deleteMemo(View view) {

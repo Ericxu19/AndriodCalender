@@ -9,8 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ViewMemoDetailsActivity"></activity>
-        <activity android:name=".ViewEventDetailsActivity"></activity>
+        <activity android:name=".LinkMemoActivity"></activity>
+        <activity android:name=".MemoEventsActivity" />
+        <activity android:name=".ViewMemoDetailsActivity" />
+        <activity android:name=".ViewEventDetailsActivity" />
         <activity
             android:name=".EventMenuActivity"
             android:parentActivityName=".MenuActivity">
@@ -20,10 +22,10 @@
         </activity>
         <activity
             android:name=".SelectCalendarToAddEventActivity"
-            android:label="@string/title_activity_select_calendar_to_add_event"></activity>
-        <activity android:name=".ViewEventFromMessageActivity"></activity>
-        <activity android:name=".ComposeMessageActivity"></activity>
-        <activity android:name=".NewAlertsActivity"></activity>
+            android:label="@string/title_activity_select_calendar_to_add_event" />
+        <activity android:name=".ViewEventFromMessageActivity" />
+        <activity android:name=".ComposeMessageActivity" />
+        <activity android:name=".NewAlertsActivity" />
         <activity
             android:name=".UserMenuActivity"
             android:parentActivityName=".LoginActivity">
