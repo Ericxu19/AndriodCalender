@@ -42,12 +42,13 @@
 
     <Button android:layout_width="match_parent" android:layout_height="wrap_content"
             android:layout_above="@+id/delete_event_button" android:layout_centerHorizontal="true"
-            android:id="@+id/view_memo_button" android:text="@string/view_memo"/>
+            android:id="@+id/view_memo_button" android:text="@string/view_memo" android:onClick="openMemoDialog"/>
 
     <Button android:layout_width="match_parent" android:layout_height="wrap_content"
             android:layout_alignParentBottom="true" android:layout_centerHorizontal="true"
             android:id="@+id/delete_event_button" android:text="@string/delete_event"
             android:onClick="deleteEvent"/>
+
 
 
 </RelativeLayout>

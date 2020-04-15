@@ -157,6 +157,7 @@ public class User extends Observable implements Serializable {
         for(Calendar c:calendarsList){
             list.addAll(c.raiseAllAlerts(now));
         }
+        signalChanges();
         return list;
     }
 

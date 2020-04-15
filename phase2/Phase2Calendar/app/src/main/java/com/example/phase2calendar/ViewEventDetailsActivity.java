@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.phase2calendar.dialogs.EventCreationDialog;
 import com.example.phase2calendar.dialogs.TagCreationDialog;
+import com.example.phase2calendar.dialogs.ViewMemoDialog;
 import com.example.phase2calendar.logic.*;
 
 import java.time.LocalDateTime;
@@ -71,6 +72,19 @@ public class ViewEventDetailsActivity extends AppCompatActivity implements Event
         args.putSerializable("endTime", currentEvent.getEndTime());
         dialog.setArguments(args);
         dialog.show(getSupportFragmentManager(), "event creation dialog");
+    }
+
+    public void openMemoDialog(View view){
+        if(currentEvent.getMemo() == null){
+            Toast.makeText(getApplicationContext(), "This event has no associated memo", Toast.LENGTH_SHORT).show();
+        } else {
+            ViewMemoDialog dialog = new ViewMemoDialog();
+            Bundle args = new Bundle();
+            args.putString("title", currentEvent.getMemo().getName());
+            args.putString("description", currentEvent.getMemo().getDescription());
+            dialog.setArguments(args);
+            dialog.show(getSupportFragmentManager(), "show memo");
+        }
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)

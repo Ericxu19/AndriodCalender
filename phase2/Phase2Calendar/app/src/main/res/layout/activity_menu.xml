@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,58 +11,36 @@
         android:layout_width="341dp"
         android:layout_height="78dp"
         android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
 
     </SearchView>
 
     <Button
-        android:id="@+id/event"
-        android:layout_width="215dp"
-        android:layout_height="51dp"
-        android:onClick="eventMenu"
-        android:text="Events"
-        app:layout_constraintBottom_toTopOf="@+id/alert"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+            android:id="@+id/event"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="eventMenu"
+            android:text="Events"
+            android:layout_centerHorizontal="true" android:layout_marginBottom="16dp"
+            android:layout_below="@+id/textView6"/>
 
     <Button
-        android:id="@+id/memos"
-        android:layout_width="215dp"
-        android:layout_height="51dp"
-        android:onClick="memoMenu"
-        android:text="Memos"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/alert" />
-
-    <Button
-        android:id="@+id/alert"
-        android:layout_width="215dp"
-        android:layout_height="51dp"
-        android:onClick="alertMenu"
-        android:text="Alerts"
-        app:layout_constraintBottom_toTopOf="@+id/memos"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/event" />
-
+            android:id="@+id/memos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="memoMenu"
+            android:text="Memos"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/event"
+            android:layout_marginBottom="184dp"/>
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="341dp"
-        android:layout_height="179dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/event"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView" />
+        android:layout_centerHorizontal="true" android:textStyle="bold" android:textSize="30dp"
+        android:layout_marginBottom="150dp"
+        android:layout_below="@+id/searchView" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

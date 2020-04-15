@@ -1,5 +1,8 @@
 package com.example.phase2calendar.logic;
 
+import android.os.Build;
+import androidx.annotation.RequiresApi;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.time.LocalDateTime;
@@ -61,6 +64,12 @@ public class Calendar implements Serializable, Listable {
     }
 
     public void addMemoToEvent(Event event, Memo memo){
+        for(Event e: eventsList){
+            if(e.getMemo() == memo){
+                removeMemoFromEvent(e);
+                break;
+            }
+        }
         eventsList.get(eventsList.indexOf(event)).setMemo(memo);
     }
 
@@ -110,6 +119,7 @@ public class Calendar implements Serializable, Listable {
         eventsList.get(eventsList.indexOf(event)).addAlerts(t);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public ArrayList<Alert> raiseAllAlerts(LocalDateTime now) {
         ArrayList<Alert> list = new ArrayList<Alert>();
         for (int i = 0; i < eventsList.size(); i++) {

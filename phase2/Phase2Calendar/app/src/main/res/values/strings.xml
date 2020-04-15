@@ -75,6 +75,7 @@
     <string name="delete_memo">Delete this Memo</string>
     <string name="view_events">View Events</string>
     <string name="add_event">associate an event with this memo</string>
+    <string name="memo_view_tip">To change or delete this memo, please find it on the memo screen from the user menu.</string>
 
 
 </resources>

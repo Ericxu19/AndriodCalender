@@ -47,7 +47,11 @@
         </activity>
         <activity android:name=".ComposeMessageActivity">
         </activity>
-        <activity android:name=".NewAlertsActivity">
+        <activity android:name=".NewAlertsActivity"
+                  android:parentActivityName=".UserMenuActivity">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".UserMenuActivity"/>
         </activity>
         <activity
             android:name=".UserMenuActivity"
@@ -69,7 +73,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".UserMenuActivity" />
         </activity>
-        <activity android:name=".MemoListActivity"/>
+        <activity android:name=".MemoListActivity" android:parentActivityName=".UserMenuActivity">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".UserMenuActivity" />
+        </activity>
         <activity
             android:name=".MainMenuActivity"
             android:label="@string/calendars"

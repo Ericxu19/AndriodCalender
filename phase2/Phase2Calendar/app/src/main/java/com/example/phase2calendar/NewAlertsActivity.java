@@ -48,17 +48,6 @@ public class NewAlertsActivity extends AppCompatActivity {
 
         recyclerView.setLayoutManager(this.layoutManager);
         recyclerView.setAdapter(this.adapter);
-
-        adapter.setOnClickListener(new GenericAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(int i) {
-                Intent newIntent = new Intent(NewAlertsActivity.this, MenuActivity.class);
-                Calendar currentCalendar = currentUser.getCalendarsList().get(i);
-                newIntent.putExtra("currentCalendar", currentCalendar);
-                newIntent.putExtra("currentUser", currentUser);
-                startActivity(newIntent);
-            }
-        });
     }
 
     @Override
