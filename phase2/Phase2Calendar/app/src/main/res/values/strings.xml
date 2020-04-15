@@ -81,6 +81,7 @@
     <string name="num">num</string>
     <string name="new_empty_series">New Empty Series</string>
     <string name="new_day_gap_series">New Day Gap Series</string>
+    <string name="add_an_event">Add an Event</string>
 
 
 </resources>
