@@ -21,6 +21,7 @@ public class Series implements Serializable, Listable {
         this.events = new ArrayList<Event>();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public Series(String name, String description, LocalDateTime startDateTime, LocalTime endTime, int dayGap, int numEvents) {
         this.name = name;
         this.description = description;

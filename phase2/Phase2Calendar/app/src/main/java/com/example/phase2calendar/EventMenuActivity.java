@@ -59,7 +59,6 @@ public class EventMenuActivity extends AppCompatActivity implements EventCreatio
             @Override
             public void onItemClick(int i) {
                 Intent newIntent = new Intent(EventMenuActivity.this, ViewEventDetailsActivity.class);
-                Event currentEvent = currentUser.getEventsFromCalendar(currentCalendar).get(i);
                 newIntent.putExtra("currentCalendarIndex", currentCalendarIndex);
                 newIntent.putExtra("currentUser", currentUser);
                 newIntent.putExtra("currentEventIndex", i);

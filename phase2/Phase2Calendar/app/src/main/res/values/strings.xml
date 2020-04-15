@@ -77,6 +77,10 @@
     <string name="add_event">associate an event with this memo</string>
     <string name="memo_view_tip">To change or delete this memo, please find it on the memo screen from the user menu.
     </string>
+    <string name="number_of_events">Number of Events</string>
+    <string name="num">num</string>
+    <string name="new_empty_series">New Empty Series</string>
+    <string name="new_day_gap_series">New Day Gap Series</string>
 
 
 </resources>
