@@ -87,6 +87,13 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
+            android:name=".ViewMemoDetailsActivity"
+            android:parentActivityName=".MemoListActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MemoListActivity" />
+        </activity>
+        <activity
             android:name=".LoginActivity"
             android:label="@string/button_login"
             android:parentActivityName=".MainActivity">
@@ -101,6 +108,20 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".LinkMemoActivity"
+            android:parentActivityName=".ViewMemoDetailsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ViewMemoDetailsActivity" />
+        </activity>
+        <activity
+            android:name=".MemoEventsActivity"
+            android:parentActivityName=".ViewMemoDetailsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ViewMemoDetailsActivity" />
         </activity>
         <activity
             android:name=".MenuActivity"

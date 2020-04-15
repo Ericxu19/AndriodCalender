@@ -74,4 +74,13 @@ public class MemoEventsActivity extends AppCompatActivity {
         });
     }
 
+    public boolean onSupportNavigateUp() {
+        Intent back = new Intent(this, ViewMemoDetailsActivity.class);
+        back.putExtra("currentUser", currentUser);
+        back.putExtra("currentCalendarIndex", currentCalendarIndex);
+        back.putExtra("currentMemoIndex", currentMemoIndex);
+        startActivity(back);
+        return true;
+    }
+
 }

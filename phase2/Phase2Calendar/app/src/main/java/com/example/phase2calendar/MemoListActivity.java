@@ -63,7 +63,6 @@ public class MemoListActivity extends AppCompatActivity implements MemoCreationD
             @Override
             public void onItemClick(int i) {
                 Intent newIntent = new Intent(MemoListActivity.this, ViewMemoDetailsActivity.class);
-                Memo currentMemo = currentUser.getMemosFromCalendar(currentCalendar).get(i);
                 newIntent.putExtra("currentCalendarIndex", currentCalendarIndex);
                 newIntent.putExtra("currentUser", currentUser);
                 newIntent.putExtra("currentMemoIndex", i);
