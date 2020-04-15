@@ -1,10 +1,12 @@
-package com.example.phase2calendar;
+package com.example.phase2calendar.dialogs;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+
+import com.example.phase2calendar.R;
 
 public class EventActivity extends AppCompatActivity {
 
@@ -29,9 +31,9 @@ public class EventActivity extends AppCompatActivity {
         String edate = endDate.getText().toString();
         String etime = endTime.getText().toString();
 
-//        Intent intent = getIntent();
+//        Intent intent = getIntent();pppyyyyyyyyyyy
 //        User user = (User) intent.getSerializableExtra("user");
-//        Memo event = new Event(name, desc, fuck);
+//        Memo event = new Event(name, desc, fuck);t
 //        //user.addEventToCalendar(event, user.getCurrentCalender);
     }
 }

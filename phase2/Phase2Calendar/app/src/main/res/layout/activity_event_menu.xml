@@ -8,20 +8,22 @@
         tools:context=".EventMenuActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="4dp"
-            android:background="@android:color/darker_gray"
-            android:scrollbars="vertical"
-            android:layout_marginBottom="100dp"/>
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="100dp"
+        android:background="@android:color/darker_gray"
+        android:padding="4dp"
+        android:scrollbars="vertical" />
 
-    <androidx.appcompat.widget.AppCompatButton android:layout_width="wrap_content"
-                                               android:layout_height="wrap_content"
-                                               android:id="@+id/compose_button"
-                                               android:layout_marginBottom="27dp"
-                                               android:layout_alignParentBottom="true"
-                                               android:text="@string/new_event"
-                                               android:layout_centerHorizontal="true" android:onClick="openDialog"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/compose_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="27dp"
+        android:onClick="openDialog"
+        android:text="@string/new_event" />
 
 </RelativeLayout>

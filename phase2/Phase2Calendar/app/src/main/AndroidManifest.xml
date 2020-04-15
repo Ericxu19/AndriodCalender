@@ -1,93 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.phase2calendar">
+    package="com.example.phase2calendar">
 
     <application
-            android:allowBackup="true"
-            android:icon="@mipmap/ic_launcher"
-            android:label="@string/app_name"
-            android:roundIcon="@mipmap/ic_launcher_round"
-            android:supportsRtl="true"
-            android:theme="@style/AppTheme">
-        <activity android:name=".ViewEventDetailsActivity">
-        </activity>
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".ViewMemoDetailsActivity"></activity>
+        <activity android:name=".ViewEventDetailsActivity"></activity>
         <activity
-                android:name=".EventMenuActivity"
-                android:parentActivityName=".MenuActivity">
+            android:name=".EventMenuActivity"
+            android:parentActivityName=".MenuActivity">
             <meta-data
-                    android:name="android.support.PARENT_ACTIVITY"
-                    android:value=".MenuActivity"/>
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MenuActivity" />
         </activity>
         <activity
-                android:name=".SelectCalendarToAddEventActivity"
-                android:label="@string/title_activity_select_calendar_to_add_event">
-        </activity>
-        <activity android:name=".ViewEventFromMessageActivity">
-        </activity>
-        <activity android:name=".ComposeMessageActivity">
-        </activity>
-        <activity android:name=".NewAlertsActivity">
-        </activity>
+            android:name=".SelectCalendarToAddEventActivity"
+            android:label="@string/title_activity_select_calendar_to_add_event"></activity>
+        <activity android:name=".ViewEventFromMessageActivity"></activity>
+        <activity android:name=".ComposeMessageActivity"></activity>
+        <activity android:name=".NewAlertsActivity"></activity>
         <activity
-                android:name=".UserMenuActivity"
-                android:parentActivityName=".LoginActivity">
+            android:name=".UserMenuActivity"
+            android:parentActivityName=".LoginActivity">
             <meta-data
-                    android:name="android.support.PARENT_ACTIVITY"
-                    android:value=".LoginActivity"/>
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LoginActivity" />
         </activity>
-        <activity android:name=".EventActivity"/>
-        <activity android:name=".NewMemoActivity"/>
-        <activity android:name=".MemoActivity"/>
-        <activity android:name=".AlertMenu"/>
-        <activity android:name=".NewAlertActivity"/>
+        <activity android:name=".EventActivity" />
+        <activity android:name=".NewMemoActivity" />
+        <activity android:name=".MemoActivity" />
+        <activity android:name=".AlertMenu" />
+        <activity android:name=".NewAlertActivity" />
         <activity
-                android:name=".MessagesActivity"
-                android:parentActivityName=".UserMenuActivity">
+            android:name=".MessagesActivity"
+            android:parentActivityName=".UserMenuActivity">
             <meta-data
-                    android:name="android.support.PARENT_ACTIVITY"
-                    android:value=".UserMenuActivity"/>
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".UserMenuActivity" />
         </activity>
-        <activity android:name=".MemoListActivity"/>
+        <activity android:name=".MemoListActivity" />
         <activity
-                android:name=".MainMenuActivity"
-                android:label="@string/calendars"
-                android:parentActivityName=".UserMenuActivity">
+            android:name=".MainMenuActivity"
+            android:label="@string/calendars"
+            android:parentActivityName=".UserMenuActivity">
             <meta-data
-                    android:name="android.support.PARENT_ACTIVITY"
-                    android:value=".UserMenuActivity"/>
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".UserMenuActivity" />
         </activity>
         <activity
-                android:name=".RegisterActivity"
-                android:label="@string/button_register"
-                android:parentActivityName=".MainActivity">
+            android:name=".RegisterActivity"
+            android:label="@string/button_register"
+            android:parentActivityName=".MainActivity">
             <meta-data
-                    android:name="android.support.PARENT_ACTIVITY"
-                    android:value=".MainActivity"/>
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity
-                android:name=".LoginActivity"
-                android:label="@string/button_login"
-                android:parentActivityName=".MainActivity">
+            android:name=".LoginActivity"
+            android:label="@string/button_login"
+            android:parentActivityName=".MainActivity">
             <meta-data
-                    android:name="android.support.PARENT_ACTIVITY"
-                    android:value=".MainActivity"/>
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity
-                android:name=".RegisteredActivity"
-                android:label="Registered!"
-                android:parentActivityName=".MainActivity">
+            android:name=".RegisteredActivity"
+            android:label="Registered!"
+            android:parentActivityName=".MainActivity">
             <meta-data
-                    android:name="android.support.PARENT_ACTIVITY"
-                    android:value=".MainActivity"/>
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity
-                android:name=".MenuActivity"
-                android:parentActivityName=".LoginActivity"/>
+            android:name=".MenuActivity"
+            android:parentActivityName=".LoginActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>

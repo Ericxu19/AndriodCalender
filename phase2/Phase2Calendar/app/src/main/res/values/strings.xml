@@ -63,4 +63,9 @@
     <string name="add_many_alerts">Add many Alerts</string>
     <string name="view_memo">View Memo</string>
 
+    <string name="delete_memo">Delete this Memo</string>
+    <string name="view_events">View Events</string>
+    <string name="add_event">associate an event with this memo</string>
+
+
 </resources>
