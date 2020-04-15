@@ -33,16 +33,12 @@
             android:id="@+id/edit_event_button" android:text="@string/edit_event" android:onClick="openDialog"/>
 
     <Button android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:layout_above="@+id/add_an_alert_button" android:layout_centerHorizontal="true"
-            android:id="@+id/view_tags_button" android:text="@string/view_tags" android:onClick="openShowTags"/>
-
-    <Button android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:layout_above="@+id/add_many_alerts_button" android:layout_centerHorizontal="true"
-            android:id="@+id/add_an_alert_button" android:text="@string/add_an_alert"/>
+            android:layout_above="@+id/manage_alerts_button" android:layout_centerHorizontal="true"
+            android:id="@+id/view_tags_button" android:text="@string/manage_tags" android:onClick="openShowTags"/>
 
     <Button android:layout_width="match_parent" android:layout_height="wrap_content"
             android:layout_above="@+id/view_memo_button" android:layout_centerHorizontal="true"
-            android:id="@+id/add_many_alerts_button" android:text="@string/add_many_alerts"/>
+            android:id="@+id/manage_alerts_button" android:text="@string/manage_alerts" android:onClick="openManageAlerts"/>
 
     <Button android:layout_width="match_parent" android:layout_height="wrap_content"
             android:layout_above="@+id/delete_event_button" android:layout_centerHorizontal="true"

@@ -1,5 +1,8 @@
 package com.example.phase2calendar.logic;
 
+import android.os.Build;
+import androidx.annotation.RequiresApi;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.io.Serializable;
@@ -75,6 +78,11 @@ public class Event implements Serializable, Listable {
         alertHandler.addAlerts(alert_info);
     }
 
+    public ArrayList<Alert> getAllAlerts() {
+        return this.alertHandler.getAllAlerts();
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public ArrayList<Alert> raiseAlerts(LocalDateTime now) {
         return alertHandler.raiseAlerts(now);
     }
