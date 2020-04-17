@@ -101,7 +101,6 @@
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value=".LoginActivity"/>
         </activity>
-        <activity android:name=".EventActivity"/>
         <activity android:name=".AlertMenu"
             android:parentActivityName=".MenuActivity">
             <meta-data
