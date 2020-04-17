@@ -63,6 +63,7 @@ public class MenuActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SeriesListActivity.class);
         intent.putExtra("currentUser", user);
         intent.putExtra("currentCalendarIndex", currentCalendarIndex);
+        startActivity(intent);
     }
 
     public void alertMenu(View view)
