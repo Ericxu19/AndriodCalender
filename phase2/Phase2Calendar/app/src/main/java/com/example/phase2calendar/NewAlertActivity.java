@@ -55,7 +55,7 @@ public class NewAlertActivity extends AppCompatActivity {
         String date = dateField.getText().toString();
         String time = timeField.getText().toString();
 
-        if (date == "")
+        if (date.length() == 0)
         {
 
         }
