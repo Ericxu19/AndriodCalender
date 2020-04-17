@@ -82,6 +82,16 @@
     <string name="new_empty_series">New Empty Series</string>
     <string name="new_day_gap_series">New Day Gap Series</string>
     <string name="add_an_event">Add an Event</string>
-
+    <string name="search_by_event_name">Search by Event Name</string>
+    <string name="search_by_series_name">Search by Series Name</string>
+    <string name="search_by_date">Search by Date</string>
+    <string name="search_by_tag">Search by Tag</string>
+    <string name="memos">Memos</string>
+    <string name="events">Events</string>
+    <string name="series">Series</string>
+    <string name="before_this_date">Before This Date</string>
+    <string name="after_this_date">After This Date</string>
+    <string name="on_this_date">On This Date</string>
+    <string name="dateddmmyyyy">Date (dd/mm/yyyy)</string>
 
 </resources>
