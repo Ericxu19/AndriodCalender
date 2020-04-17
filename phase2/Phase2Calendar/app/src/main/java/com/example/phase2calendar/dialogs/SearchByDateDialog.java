@@ -78,6 +78,30 @@ public class SearchByDateDialog extends AppCompatDialogFragment {
         searchYear = view.findViewById(R.id.search_year);
         radioGroup = view.findViewById(R.id.radioGroup);
 
+        RadioButton radioButtonTemp = view.findViewById(R.id.before_this_date_button);
+        radioButtonTemp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                checkButton(v);
+            }
+        });
+
+        radioButtonTemp = view.findViewById(R.id.on_this_date_button);
+        radioButtonTemp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                checkButton(v);
+            }
+        });
+
+        radioButtonTemp = view.findViewById(R.id.after_this_date_button);
+        radioButtonTemp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                checkButton(v);
+            }
+        });
+
         return builder.create();
     }
 

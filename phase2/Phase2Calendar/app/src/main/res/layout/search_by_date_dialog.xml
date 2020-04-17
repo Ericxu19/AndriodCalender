@@ -37,15 +37,13 @@
 
         <RadioButton android:layout_width="wrap_content" android:layout_height="wrap_content"
                      android:text="@string/before_this_date" android:id="@+id/before_this_date_button"
-                     android:onClick="checkButton" android:checked="true"/>
+                     android:checked="true"/>
 
         <RadioButton android:layout_width="wrap_content" android:layout_height="wrap_content"
-                     android:text="@string/on_this_date" android:id="@+id/on_this_date_button"
-                     android:onClick="checkButton"/>
+                     android:text="@string/on_this_date" android:id="@+id/on_this_date_button"/>
 
         <RadioButton android:layout_width="wrap_content" android:layout_height="wrap_content"
-                     android:text="@string/after_this_date" android:id="@+id/after_this_date_button"
-                     android:onClick="checkButton"/>
+                     android:text="@string/after_this_date" android:id="@+id/after_this_date_button"/>
 
     </RadioGroup>
 
