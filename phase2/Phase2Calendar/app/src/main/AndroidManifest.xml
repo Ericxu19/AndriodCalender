@@ -11,9 +11,17 @@
             android:theme="@style/AppTheme">
         <activity android:name=".ViewEventsInSeriesActivity">
         </activity>
-        <activity android:name=".AddEventToSeriesActivity">
+        <activity android:name=".AddEventToSeriesActivity"
+            android:parentActivityName=".ViewSeriesDetailsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ViewSeriesDetailsActivity"/>
         </activity>
-        <activity android:name=".ViewSeriesDetailsActivity">
+        <activity android:name=".ViewSeriesDetailsActivity"
+            android:parentActivityName=".ViewSeriesDetailsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ViewSeriesDetailsActivity"/>
         </activity>
         <activity android:name=".SeriesListActivity">
         </activity>
