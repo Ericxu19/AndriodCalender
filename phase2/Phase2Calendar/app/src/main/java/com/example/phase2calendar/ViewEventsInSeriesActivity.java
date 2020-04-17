@@ -56,4 +56,14 @@ public class ViewEventsInSeriesActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(this.layoutManager);
         recyclerView.setAdapter(this.adapter);
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        Intent back = new Intent(this, ViewSeriesDetailsActivity.class);
+        back.putExtra("currentUser", currentUser);
+        back.putExtra("currentCalendarIndex", currentCalendarIndex);
+        back.putExtra("currentSeriesIndex", currentSeriesIndex);
+        startActivity(back);
+        return true;
+    }
 }
