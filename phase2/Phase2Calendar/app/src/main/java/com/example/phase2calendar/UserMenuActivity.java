@@ -2,6 +2,7 @@ package com.example.phase2calendar;
 
 import android.content.Intent;
 import android.os.Build;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -19,6 +20,8 @@ public class UserMenuActivity extends AppCompatActivity {
 
     private User currentUser;
     private ArrayList<Alert> alerts;
+    private boolean refresher;
+    Button alertsButton;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -35,22 +38,22 @@ public class UserMenuActivity extends AppCompatActivity {
         TextView title = findViewById(R.id.welcome_view);
         title.setText("Welcome, " + currentUser.getUsername() + "!");
 
-        LocalDateTime now = LocalDateTime.now();
-        alerts = currentUser.raiseAllAlerts(now);
-
-        Button alertsButton = findViewById(R.id.alerts_button);
-        alertsButton.setText(alerts.size() + " New Alerts!");
+        alertsButton = findViewById(R.id.alerts_button);
+        refresher = true;
+        setContent();
     }
 
     public void openMainMenu(View view){
         Intent intent = new Intent(this, MainMenuActivity.class);
         intent.putExtra("currentUser", currentUser);
+        refresher = false;
         startActivity(intent);
     }
 
     public void showMessages(View view){
         Intent intent = new Intent(this, MessagesActivity.class);
         intent.putExtra("currentUser", currentUser);
+        refresher = false;
         startActivity(intent);
     }
 
@@ -58,6 +61,30 @@ public class UserMenuActivity extends AppCompatActivity {
         Intent intent = new Intent(this, NewAlertsActivity.class);
         intent.putExtra("currentUser", currentUser);
         intent.putExtra("newAlerts", alerts);
+        refresher = false;
         startActivity(intent);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void setContent() {
+        LocalDateTime now = LocalDateTime.now();
+        alerts = currentUser.raiseAllAlerts(now);
+        alertsButton.setText(alerts.size() + " New Alerts!");
+        if (refresher){
+            refresh(10000);
+        }
+    }
+
+    private void refresh(int milliseconds) {
+        final Handler handler = new Handler();
+
+        final Runnable runnable = new Runnable() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void run() {
+                setContent();
+            }
+        };
+        handler.postDelayed(runnable, milliseconds);
     }
 }
