@@ -17,7 +17,11 @@
         </activity>
         <activity android:name=".SeriesListActivity">
         </activity>
-        <activity android:name=".ViewAlertInfoActivity">
+        <activity android:name=".ViewAlertInfoActivity"
+            android:parentActivityName=".AlertMenu">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AlertMenu"/>
         </activity>
         <activity
                 android:name=".ManageAlertsActivity"
@@ -71,7 +75,6 @@
         </activity>
         <activity android:name=".EventActivity"/>
         <activity android:name=".NewMemoActivity"/>
-        <activity android:name=".MemoActivity"/>
         <activity android:name=".AlertMenu"/>
         <activity android:name=".NewAlertActivity"/>
         <activity
