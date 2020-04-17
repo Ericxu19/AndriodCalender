@@ -11,15 +11,35 @@
             android:theme="@style/AppTheme">
         <activity android:name=".SearchResultActivity">
         </activity>
-        <activity android:name=".ViewEventsInSeriesActivity">
+        <activity android:name=".ViewEventsInSeriesActivity"
+            android:parentActivityName=".ViewSeriesDetailsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ViewSeriesDetailsActivity"/>
         </activity>
-        <activity android:name=".AddEventToSeriesActivity">
+        <activity android:name=".AddEventToSeriesActivity"
+            android:parentActivityName=".ViewSeriesDetailsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ViewSeriesDetailsActivity"/>
         </activity>
-        <activity android:name=".ViewSeriesDetailsActivity">
+        <activity android:name=".ViewSeriesDetailsActivity"
+            android:parentActivityName=".ViewSeriesDetailsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ViewSeriesDetailsActivity"/>
         </activity>
-        <activity android:name=".SeriesListActivity">
+        <activity android:name=".SeriesListActivity"
+            android:parentActivityName=".MenuActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MenuActivity"/>
         </activity>
-        <activity android:name=".ViewAlertInfoActivity">
+        <activity android:name=".ViewAlertInfoActivity"
+            android:parentActivityName=".AlertMenu">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AlertMenu"/>
         </activity>
         <activity
                 android:name=".ManageAlertsActivity"
@@ -51,11 +71,23 @@
         </activity>
         <activity
                 android:name=".SelectCalendarToAddEventActivity"
-                android:label="@string/title_activity_select_calendar_to_add_event">
+                android:label="@string/title_activity_select_calendar_to_add_event"
+            android:parentActivityName=".ViewEventFromMessageActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ViewEventFromMessageActivity"/>
         </activity>
-        <activity android:name=".ViewEventFromMessageActivity">
+        <activity android:name=".ViewEventFromMessageActivity"
+            android:parentActivityName=".MessagesActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MessagesActivity"/>
         </activity>
-        <activity android:name=".ComposeMessageActivity">
+        <activity android:name=".ComposeMessageActivity"
+            android:parentActivityName=".MessagesActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MessagesActivity"/>
         </activity>
         <activity
                 android:name=".NewAlertsActivity"
@@ -71,11 +103,18 @@
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value=".LoginActivity"/>
         </activity>
-        <activity android:name=".EventActivity"/>
-        <activity android:name=".NewMemoActivity"/>
-        <activity android:name=".MemoActivity"/>
-        <activity android:name=".AlertMenu"/>
-        <activity android:name=".NewAlertActivity"/>
+        <activity android:name=".AlertMenu"
+            android:parentActivityName=".MenuActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MenuActivity"/>
+        </activity>
+        <activity android:name=".NewAlertActivity"
+            android:parentActivityName=".AlertMenu">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AlertMenu"/>
+        </activity>
         <activity
                 android:name=".MessagesActivity"
                 android:parentActivityName=".UserMenuActivity">
