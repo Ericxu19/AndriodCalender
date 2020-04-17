@@ -55,7 +55,7 @@ public class SearchByDateDialog extends AppCompatDialogFragment {
                     int relation = -1;
                     int radioId = radioGroup.getCheckedRadioButtonId();
                     radioButton = view.findViewById(radioId);
-                    if(radioButton.getId() == R.id.after_this_date_button){
+                    if(radioButton.getId() == R.id.before_this_date_button){
                         relation = 0;
                     }
                     else if(radioButton.getId() == R.id.on_this_date_button){
