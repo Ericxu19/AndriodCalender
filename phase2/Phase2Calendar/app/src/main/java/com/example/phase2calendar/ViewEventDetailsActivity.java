@@ -62,6 +62,10 @@ public class ViewEventDetailsActivity extends AppCompatActivity implements Event
         descriptionView.setText(currentEvent.getDescription());
     }
 
+    /**
+     * Set up and display event creation
+     */
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void openDialog(View view) {
         EventCreationDialog dialog = new EventCreationDialog();
@@ -73,6 +77,10 @@ public class ViewEventDetailsActivity extends AppCompatActivity implements Event
         dialog.setArguments(args);
         dialog.show(getSupportFragmentManager(), "event creation dialog");
     }
+
+    /**
+     * Displays memo if event has one
+     */
 
     public void openMemoDialog(View view){
         if(currentEvent.getMemo() == null){
@@ -117,6 +125,11 @@ public class ViewEventDetailsActivity extends AppCompatActivity implements Event
         intent.putExtra("currentEventIndex", currentEventIndex);
         startActivity(intent);
     }
+
+    /**
+     * This supports the back button for the activity
+     * @return boolean.
+     */
 
     @Override
     public boolean onSupportNavigateUp() {

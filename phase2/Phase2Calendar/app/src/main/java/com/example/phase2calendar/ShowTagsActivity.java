@@ -34,6 +34,10 @@ public class ShowTagsActivity extends AppCompatActivity implements TagCreationDi
         setRecyclerView();
     }
 
+    /**
+     * Set user / calendar specific fields
+     */
+
     public void setCurrentUser() {
         Intent intent = getIntent();
         currentUser = (User) intent.getSerializableExtra("currentUser");
@@ -47,6 +51,9 @@ public class ShowTagsActivity extends AppCompatActivity implements TagCreationDi
         currentCalendar = currentUser.getCalendar(currentCalendarIndex);
         currentEvent = currentCalendar.getEvents().get(currentEventIndex);
     }
+    /**
+     * This recycler view shows the tags associated with the event
+     */
 
     public void setRecyclerView() {
         this.recyclerView = findViewById(R.id.recyclerView);
@@ -69,6 +76,11 @@ public class ShowTagsActivity extends AppCompatActivity implements TagCreationDi
         currentUser.addTagToEventInCalendar(currentEvent, tag, currentCalendar);
         adapter.notifyItemInserted(currentEvent.getAttachments().size() - 1);
     }
+
+    /**
+     * This supports the back button for the activity
+     * @return boolean.
+     */
 
     @Override
     public boolean onSupportNavigateUp() {

@@ -50,6 +50,10 @@ public class SelectCalendarToAddEventActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
     }
 
+    /**
+     * This supports the event creation button with logic
+     */
+
     public void addEvent(View view) {
         Calendar selectedCalendar = (Calendar) adapter.getSelectedItem();
 
@@ -66,6 +70,11 @@ public class SelectCalendarToAddEventActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Please select a calendar", Toast.LENGTH_SHORT).show();
         }
     }
+
+    /**
+     * This supports the back button for the activity
+     * @return boolean.
+     */
 
     @Override
     public boolean onSupportNavigateUp() {

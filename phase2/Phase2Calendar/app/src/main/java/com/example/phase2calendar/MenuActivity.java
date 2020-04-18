@@ -43,6 +43,11 @@ public class MenuActivity extends AppCompatActivity implements SearchByEventName
 
     }
 
+    /**
+     * This supports the back button for the activity
+     * @return boolean.
+     */
+
     @Override
     public boolean onSupportNavigateUp() {
         Intent back = new Intent(this, MainMenuActivity.class);
@@ -72,13 +77,6 @@ public class MenuActivity extends AppCompatActivity implements SearchByEventName
         intent.putExtra("currentUser", user);
         intent.putExtra("currentCalendarIndex", currentCalendarIndex);
         startActivity(intent);
-    }
-
-    public void alertMenu(View view)
-    {
-        Intent goToAlert = new Intent(this, AlertMenu.class);
-        goToAlert.putExtra("currentUser", user);
-        startActivity(goToAlert);
     }
 
     public void openSearchByEventName(View view) {

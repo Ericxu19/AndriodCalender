@@ -62,6 +62,10 @@ public class ViewAlertInfoActivity extends AppCompatActivity implements SingleAl
         descriptionView.setText(currentEvent.getDescription());
     }
 
+    /**
+     * Set up and display alert creation dialog
+     */
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void openDialog(View view) {
         SingleAlertCreationDialog dialog = new SingleAlertCreationDialog();

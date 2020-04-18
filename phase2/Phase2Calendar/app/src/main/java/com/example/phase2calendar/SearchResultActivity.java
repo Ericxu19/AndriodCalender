@@ -30,6 +30,10 @@ public class SearchResultActivity extends AppCompatActivity {
         setRecyclerView();
     }
 
+    /**
+     * Initializes user info
+     */
+
     public void setCurrentUser() {
         Intent intent = getIntent();
         currentUser = (User) intent.getSerializableExtra("currentUser");
@@ -43,6 +47,10 @@ public class SearchResultActivity extends AppCompatActivity {
         searchResults = (ArrayList) intent.getSerializableExtra("searchResults");
     }
 
+    /**
+     * This recycler view shows the search results
+     */
+
     public void setRecyclerView() {
         this.recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
@@ -52,6 +60,11 @@ public class SearchResultActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(this.layoutManager);
         recyclerView.setAdapter(this.adapter);
     }
+
+    /**
+     * This supports the back button for the activity
+     * @return boolean.
+     */
 
     @Override
     public boolean onSupportNavigateUp() {

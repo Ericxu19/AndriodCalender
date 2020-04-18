@@ -31,6 +31,11 @@ public class NewAlertsActivity extends AppCompatActivity {
         setRecyclerView();
     }
 
+    /**
+     * Initialize user info
+     */
+
+
     private void setCurrentUser() {
         Intent intent = getIntent();
         currentUser = (User) intent.getSerializableExtra("currentUser");
@@ -39,6 +44,10 @@ public class NewAlertsActivity extends AppCompatActivity {
         currentUser.addObserver(userWriter);
         alerts = (ArrayList<Alert>) intent.getSerializableExtra("newAlerts");
     }
+
+    /**
+     * This recycler view shows this events' alerts
+     */
 
     private void setRecyclerView() {
         this.recyclerView = findViewById(R.id.recyclerView);
@@ -49,6 +58,11 @@ public class NewAlertsActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(this.layoutManager);
         recyclerView.setAdapter(this.adapter);
     }
+
+    /**
+     * This supports the back button for the activity
+     * @return boolean.
+     */
 
     @Override
     public boolean onSupportNavigateUp() {
