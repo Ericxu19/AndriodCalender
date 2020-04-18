@@ -5,6 +5,7 @@ import android.os.Build;
 import androidx.annotation.RequiresApi;
 
 import java.io.Serializable;
+import java.time.MonthDay;
 import java.util.ArrayList;
 import java.time.LocalDateTime;
 import java.util.Observable;
@@ -18,12 +19,22 @@ public class User extends Observable implements Serializable {
 
     private ArrayList<Calendar> calendarsList;
     private ArrayList<Message> messagesList;
+    private ArrayList<MonthDay> holidays;
 
     public User(String username, String password) {
         this.username = username;
         this.password = password;
         this.calendarsList = new ArrayList<>();
         this.messagesList = new ArrayList<>();
+        initializeHolidays();
+    }
+
+    public void initializeHolidays() {
+        this.holidays = new ArrayList<>();
+        holidays.add(MonthDay.of(1, 1));
+        holidays.add(MonthDay.of(10, 31));
+        holidays.add(MonthDay.of(12, 25));
+        holidays.add(MonthDay.of(12, 31));
     }
 
     public void signalChanges() {
@@ -166,6 +177,32 @@ public class User extends Observable implements Serializable {
         event = calendar.getEvents().get(calendar.getEvents().indexOf(event));
         event.deleteAlert(alert);
         signalChanges();
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public int isHoliday(LocalDateTime now) {
+        MonthDay today = MonthDay.from(now);
+        for (int i = 0; i < holidays.size(); i++) {
+            if (today.equals(holidays.get(i))) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public String getHoliday(int holiday) {
+        switch (holiday) {
+            case 0:
+                return "Happy New Years!!!";
+            case 1:
+                return "Happy Halloween";
+            case 2:
+                return "Merry Christmas!";
+            case 3:
+                return "It's New Year's Eve!!!";
+            default:
+                return null;
+        }
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
