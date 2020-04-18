@@ -37,6 +37,10 @@ public class ManageAlertsActivity extends AppCompatActivity implements SingleAle
         setRecyclerView();
     }
 
+    /**
+     * Initialize activity with user info
+     */
+
     public void setCurrentUser() {
         Intent intent = getIntent();
         currentUser = (User) intent.getSerializableExtra("currentUser");
@@ -50,6 +54,10 @@ public class ManageAlertsActivity extends AppCompatActivity implements SingleAle
         currentCalendar = currentUser.getCalendar(currentCalendarIndex);
         currentEvent = currentCalendar.getEvents().get(currentEventIndex);
     }
+
+    /**
+     * This default view shows all of the current event's alerts
+     */
 
     public void setRecyclerView() {
         this.recyclerView = findViewById(R.id.recyclerView);
@@ -73,6 +81,10 @@ public class ManageAlertsActivity extends AppCompatActivity implements SingleAle
         });
     }
 
+    /**
+     * Sets up and display pop up for making a single alert
+     */
+
     public void openSingleAlertDialog(View view) {
         SingleAlertCreationDialog dialog = new SingleAlertCreationDialog();
         Bundle bundle = new Bundle();
@@ -83,10 +95,19 @@ public class ManageAlertsActivity extends AppCompatActivity implements SingleAle
         dialog.show(getSupportFragmentManager(), "single alert creation");
     }
 
+    /**
+     * Sets up and display pop up for making a sequence of alerts
+     */
+
     public void openManyAlertsDialog(View view) {
         MultipleAlertCreationDialog dialog = new MultipleAlertCreationDialog();
         dialog.show(getSupportFragmentManager(), "multiple alert creation");
     }
+
+    /**
+     *  Create a sequence of alerts, stored in field inputs
+     *  Add these new alerts to calendar, and indicate to adapter changes
+     */
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -100,11 +121,20 @@ public class ManageAlertsActivity extends AppCompatActivity implements SingleAle
         adapter.notifyDataSetChanged();
     }
 
+    /**
+     * Passes responsibility down to calendar and updates alert list
+     */
+
     @Override
     public void createSingleAlert(String title, String description, LocalDateTime start) {
         currentUser.addAlertToEventInCalendar(currentEvent, new Triple<>(title, description, start), currentCalendar);
         adapter.notifyItemInserted(currentEvent.getAllAlerts().size() - 1);
     }
+
+    /**
+     * This supports the back button for the activity
+     * @return boolean.
+     */
 
     @Override
     public boolean onSupportNavigateUp() {

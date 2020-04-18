@@ -74,6 +74,11 @@ public class LinkMemoActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * This supports the back button for the activity
+     * @return boolean.
+     */
+
     public boolean onSupportNavigateUp() {
         Intent back = new Intent(this, MemoListActivity.class);
         back.putExtra("currentUser", currentUser);

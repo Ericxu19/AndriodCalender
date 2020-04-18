@@ -33,6 +33,10 @@ public class AddEventToSeriesActivity extends AppCompatActivity {
         setRecyclerView();
     }
 
+    /**
+     * Initializes user info
+     */
+
     public void setCurrentUser() {
         Intent intent = getIntent();
         currentUser = (User) intent.getSerializableExtra("currentUser");
@@ -47,6 +51,10 @@ public class AddEventToSeriesActivity extends AppCompatActivity {
         currentSeries = currentCalendar.getSeries().get(currentSeriesIndex);
     }
 
+    /**
+     * This default screen shows calendar events
+     */
+
     public void setRecyclerView() {
         this.recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
@@ -56,6 +64,11 @@ public class AddEventToSeriesActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(layoutManager);
     }
+
+    /**
+     * Supports add event button
+     * Adds event to calendar and sends user back to series if event was selected
+     */
 
     public void addEvent(View view) {
         if(adapter.getSelectedItem() == null) {
@@ -69,6 +82,11 @@ public class AddEventToSeriesActivity extends AppCompatActivity {
             startActivity(intent);
         }
     }
+
+    /**
+     * This supports the back button for the activity
+     * @return boolean.
+     */
 
     @Override
     public boolean onSupportNavigateUp() {
