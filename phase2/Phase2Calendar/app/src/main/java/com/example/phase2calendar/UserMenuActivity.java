@@ -22,6 +22,7 @@ public class UserMenuActivity extends AppCompatActivity {
     private ArrayList<Alert> alerts;
     private boolean refresher;
     Button alertsButton;
+    TextView title;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -35,8 +36,8 @@ public class UserMenuActivity extends AppCompatActivity {
         UserWriter userWriter = new UserWriter();
         currentUser.addObserver(userWriter);
 
-        TextView title = findViewById(R.id.welcome_view);
-        title.setText("Welcome, " + currentUser.getUsername() + "!");
+        this.title = findViewById(R.id.welcome_view);
+        this.title.setText("Welcome, " + currentUser.getUsername() + "!");
 
         alertsButton = findViewById(R.id.alerts_button);
         refresher = true;
@@ -70,6 +71,10 @@ public class UserMenuActivity extends AppCompatActivity {
         LocalDateTime now = LocalDateTime.now();
         alerts = currentUser.raiseAllAlerts(now);
         alertsButton.setText(alerts.size() + " New Alerts!");
+        int holiday = currentUser.isHoliday(now);
+        if (holiday >= 0) {
+            title.setText(currentUser.getHoliday(holiday));
+        }
         if (refresher){
             refresh(10000);
         }
