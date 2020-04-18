@@ -71,6 +71,10 @@ public class MemoListActivity extends AppCompatActivity implements MemoCreationD
         });
     }
 
+    /**
+     * sets up and displays memo creation dialogue
+     */
+
     public void openDialog(View view) {
         MemoCreationDialog dialog = new MemoCreationDialog();
         Bundle args = new Bundle();
@@ -78,12 +82,23 @@ public class MemoListActivity extends AppCompatActivity implements MemoCreationD
         dialog.show(getSupportFragmentManager(), "memo creation dialog");
     }
 
+    /**
+     * This creates a new memo from a title and description and updates memo list in recycler
+     * @param description memo description
+     * @param title memo title
+     */
+
     @Override
     public void createMemo(String title, String description) {
         Memo memo = new Memo(title, description);
         currentUser.addMemoToCalendar(memo, currentCalendar);
         adapter.notifyItemInserted(currentUser.getMemosFromCalendar(currentCalendar).size()-1);
     }
+
+    /**
+     * This supports the back button for the activity
+     * @return boolean.
+     */
 
     @Override
     public boolean onSupportNavigateUp() {

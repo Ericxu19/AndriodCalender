@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.phase2calendar.logic.Alert;
 import com.example.phase2calendar.logic.AlertHandler;
@@ -38,6 +39,12 @@ public class NewAlertActivity extends AppCompatActivity {
         Button create = findViewById(R.id.createAlert);
     }
 
+    /**
+     * This supports the back button for the activity
+     * @return boolean.
+     */
+
+
     @Override
     public boolean onSupportNavigateUp() {
         Intent back = new Intent(this, AlertMenu.class);
@@ -46,18 +53,4 @@ public class NewAlertActivity extends AppCompatActivity {
         return true;
     }
 
-    public void createAlert(View view)
-    {
-        ArrayList<Alert> alerts = new ArrayList<Alert>();
-        EditText dateField = findViewById(R.id.date);
-        EditText timeField = findViewById(R.id.time);
-        TextView display = findViewById(R.id.displayAlerts);
-        String date = dateField.getText().toString();
-        String time = timeField.getText().toString();
-
-        if (date.length() == 0)
-        {
-
-        }
-    }
 }

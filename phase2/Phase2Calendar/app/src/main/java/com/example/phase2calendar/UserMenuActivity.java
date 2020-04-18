@@ -66,6 +66,10 @@ public class UserMenuActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     * update time and trigger alerts if any
+     */
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void setContent() {
         LocalDateTime now = LocalDateTime.now();

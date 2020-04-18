@@ -34,6 +34,10 @@ public class ViewEventsInSeriesActivity extends AppCompatActivity {
         setRecyclerView();
     }
 
+    /**
+     * Initializes the activity with user / calendar data
+     */
+
     public void setCurrentUser() {
         Intent intent = getIntent();
         currentUser = (User) intent.getSerializableExtra("currentUser");
@@ -48,6 +52,10 @@ public class ViewEventsInSeriesActivity extends AppCompatActivity {
         currentSeries = currentCalendar.getSeries().get(currentSeriesIndex);
     }
 
+    /**
+     * This view displays the current series' events
+     */
+
     public void setRecyclerView() {
         this.recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
@@ -57,6 +65,11 @@ public class ViewEventsInSeriesActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(this.layoutManager);
         recyclerView.setAdapter(this.adapter);
     }
+
+    /**
+     * This supports the back button for the activity
+     * @return boolean.
+     */
 
     @Override
     public boolean onSupportNavigateUp() {
