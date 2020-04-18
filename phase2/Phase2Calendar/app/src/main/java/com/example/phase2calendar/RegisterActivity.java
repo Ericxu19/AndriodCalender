@@ -13,6 +13,10 @@ import com.example.phase2calendar.logic.UserManager;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * This activity is where you're taken to register
+ */
+
 public class RegisterActivity extends AppCompatActivity {
 
     @Override

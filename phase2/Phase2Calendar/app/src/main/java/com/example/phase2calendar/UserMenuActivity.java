@@ -16,6 +16,16 @@ import com.example.phase2calendar.logic.UserWriter;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
+/**
+ * This class represents the menu after login
+ *
+ * Here you see you're username and can:
+ *
+ * view new alerts
+ * Look at messages
+ * checkout your calendars
+ */
+
 public class UserMenuActivity extends AppCompatActivity {
 
     private User currentUser;

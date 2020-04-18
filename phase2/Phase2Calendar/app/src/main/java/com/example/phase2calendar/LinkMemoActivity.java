@@ -59,18 +59,14 @@ public class LinkMemoActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(this.layoutManager);
         recyclerView.setAdapter(this.adapter);
 
-        adapter.setOnClickListener(new GenericAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(int i) {
-                Event event = currentUser.getEventsFromCalendar(currentCalendar).get(i);
-                currentUser.addMemoToEventInCalendar(event, currentMemo, currentCalendar);
-                Intent newIntent = new Intent(LinkMemoActivity.this, ViewMemoDetailsActivity.class);
-                Memo currentMemo = currentUser.getMemosFromCalendar(currentCalendar).get(i);
-                newIntent.putExtra("currentCalendarIndex", currentCalendarIndex);
-                newIntent.putExtra("currentUser", currentUser);
-                newIntent.putExtra("currentMemoIndex", currentMemoIndex);
-                startActivity(newIntent);
-            }
+        adapter.setOnClickListener(i -> {
+            Event event = currentUser.getEventsFromCalendar(currentCalendar).get(i);
+            currentUser.addMemoToEventInCalendar(event, currentMemo, currentCalendar);
+            Intent newIntent = new Intent(LinkMemoActivity.this, ViewMemoDetailsActivity.class);
+            newIntent.putExtra("currentCalendarIndex", currentCalendarIndex);
+            newIntent.putExtra("currentUser", currentUser);
+            newIntent.putExtra("currentMemoIndex", currentMemoIndex);
+            startActivity(newIntent);
         });
     }
 

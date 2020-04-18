@@ -20,6 +20,17 @@ import com.example.phase2calendar.logic.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
+/**
+ * This activity is for the calendar menu
+ *
+ * Here you can:
+ *
+ * show events
+ * show memos
+ * show series
+ * search by event name, series name, tag, and date
+ */
+
 public class MenuActivity extends AppCompatActivity implements SearchByEventNameDialog.SearchByEventNameDialogListener, SearchBySeriesNameDialog.SearchBySeriesNameDialogListener, SearchByTagDialog.SearchByTagDialogListener, SearchByDateDialog.SearchByDateDialogListener {
 
     private User user;

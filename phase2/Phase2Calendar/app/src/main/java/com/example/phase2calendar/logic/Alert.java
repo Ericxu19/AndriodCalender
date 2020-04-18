@@ -3,6 +3,10 @@ package com.example.phase2calendar.logic;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+/**
+ * This class represents an alert object.
+ */
+
 public class Alert implements Serializable, Listable {
 
     private String description;

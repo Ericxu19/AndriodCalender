@@ -5,6 +5,14 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
+/**
+ * This activity is the first thing the user sees
+ *
+ * From here you can:
+ *
+ * Login or register
+ */
+
 public class MainActivity extends AppCompatActivity {
 
     @Override

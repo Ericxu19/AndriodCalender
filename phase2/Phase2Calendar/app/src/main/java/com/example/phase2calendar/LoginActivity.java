@@ -12,6 +12,16 @@ import com.example.phase2calendar.logic.UserWriter;
 
 import java.util.ArrayList;
 
+/**
+ * This activity is where you are taken after you login:
+ *
+ * You're login is either successful, in which case you'd go back
+ *
+ * or
+ *
+ * You're taken to the main menu (Usermenuactivity)
+ */
+
 public class LoginActivity extends AppCompatActivity {
 
     @Override
