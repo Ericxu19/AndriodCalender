@@ -13,7 +13,7 @@ public class DateSearcher implements EventSearcher<LocalDateTime> {
     public ArrayList<Event> search(ArrayList<Event> events, LocalDateTime date) {
         ArrayList<Event> lst = new ArrayList<Event>();
         for (Event event : events) {
-            if (event.getStartTime().withHour(0).withMinute(0).withSecond(0) == date) {
+            if (event.getStartTime().withHour(0).withMinute(0).withSecond(0).isEqual(date)) {
                 lst.add(event);
             }
         }

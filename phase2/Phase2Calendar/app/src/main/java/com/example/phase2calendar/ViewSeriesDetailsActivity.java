@@ -61,4 +61,13 @@ public class ViewSeriesDetailsActivity extends AppCompatActivity {
         intent.putExtra("currentSeriesIndex", currentSeriesIndex);
         startActivity(intent);
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        Intent back = new Intent(this, SeriesListActivity.class);
+        back.putExtra("currentUser", currentUser);
+        back.putExtra("currentCalendarIndex", currentCalendarIndex);
+        startActivity(back);
+        return true;
+    }
 }

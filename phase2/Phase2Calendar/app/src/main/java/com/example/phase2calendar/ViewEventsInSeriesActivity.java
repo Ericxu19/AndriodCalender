@@ -31,6 +31,7 @@ public class ViewEventsInSeriesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_events_in_series);
 
         setCurrentUser();
+        setRecyclerView();
     }
 
     public void setCurrentUser() {

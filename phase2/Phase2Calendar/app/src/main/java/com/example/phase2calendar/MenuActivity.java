@@ -1,5 +1,7 @@
 package com.example.phase2calendar;
 
+import android.os.Build;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,10 +11,16 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
-import com.example.phase2calendar.logic.User;
-import com.example.phase2calendar.logic.Calendar;
+import com.example.phase2calendar.dialogs.SearchByDateDialog;
+import com.example.phase2calendar.dialogs.SearchByEventNameDialog;
+import com.example.phase2calendar.dialogs.SearchBySeriesNameDialog;
+import com.example.phase2calendar.dialogs.SearchByTagDialog;
+import com.example.phase2calendar.logic.*;
 
-public class MenuActivity extends AppCompatActivity {
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+
+public class MenuActivity extends AppCompatActivity implements SearchByEventNameDialog.SearchByEventNameDialogListener, SearchBySeriesNameDialog.SearchBySeriesNameDialogListener, SearchByTagDialog.SearchByTagDialogListener, SearchByDateDialog.SearchByDateDialogListener {
 
     private User user;
     private Calendar currentCalendar;
@@ -73,4 +81,80 @@ public class MenuActivity extends AppCompatActivity {
         startActivity(goToAlert);
     }
 
+    public void openSearchByEventName(View view) {
+        SearchByEventNameDialog dialog = new SearchByEventNameDialog();
+        dialog.show(getSupportFragmentManager(), "search by event name");
+    }
+
+    public void openSearchBySeriesName(View view) {
+        SearchBySeriesNameDialog dialog = new SearchBySeriesNameDialog();
+        dialog.show(getSupportFragmentManager(), "search by series name");
+    }
+
+    public void openSearchByDate(View view) {
+        SearchByDateDialog dialog = new SearchByDateDialog();
+        dialog.show(getSupportFragmentManager(), "search by date");
+    }
+
+    public void openSearchByTag(View view) {
+        SearchByTagDialog dialog = new SearchByTagDialog();
+        dialog.show(getSupportFragmentManager(), "search by tag");
+    }
+
+    @Override
+    public void searchByEventName(String search) {
+        EventNameSearcher searcher = new EventNameSearcher();
+        ArrayList<Event> results = searcher.search(currentCalendar.getEvents(), search);
+        Intent intent = new Intent(this, SearchResultActivity.class);
+        intent.putExtra("currentUser", user);
+        intent.putExtra("currentCalendarIndex", currentCalendarIndex);
+        intent.putExtra("searchResults", results);
+        startActivity(intent);
+    }
+
+    @Override
+    public void searchBySeriesName(String search) {
+        ArrayList<Event> results = new ArrayList<>();
+        for(Series s:currentCalendar.getSeries()){
+            if(s.getName().equals(search)){
+                results.addAll(s.getEvents());
+            }
+        }
+        Intent intent = new Intent(this, SearchResultActivity.class);
+        intent.putExtra("currentUser", user);
+        intent.putExtra("currentCalendarIndex", currentCalendarIndex);
+        intent.putExtra("searchResults", results);
+        startActivity(intent);
+    }
+
+    @Override
+    public void searchByTag(String search) {
+        AttachmentSearcher searcher = new AttachmentSearcher();
+        ArrayList<Event> results = searcher.search(currentCalendar.getEvents(), search);
+        Intent intent = new Intent(this, SearchResultActivity.class);
+        intent.putExtra("currentUser", user);
+        intent.putExtra("currentCalendarIndex", currentCalendarIndex);
+        intent.putExtra("searchResults", results);
+        startActivity(intent);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    @Override
+    public void searchByDate(LocalDateTime date, int relation) {
+        DateSearcher searcher = new DateSearcher();
+        ArrayList<Event> results;
+        if(relation == 0){
+            results = searcher.searchBefore(currentCalendar.getEvents(), date);
+        }
+        else if(relation == 1){
+            results = searcher.search(currentCalendar.getEvents(), date);
+        } else {
+            results = searcher.searchAfter(currentCalendar.getEvents(), date);
+        }
+        Intent intent = new Intent(this, SearchResultActivity.class);
+        intent.putExtra("currentUser", user);
+        intent.putExtra("currentCalendarIndex", currentCalendarIndex);
+        intent.putExtra("searchResults", results);
+        startActivity(intent);
+    }
 }
