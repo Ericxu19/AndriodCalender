@@ -21,6 +21,17 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
     }
 
+    /**
+     * Supports register logic for button
+     * Validates username / password combo
+     *
+     * iff
+     *
+     * password is confirmed
+     * username and password are not empty
+     * the username is unused and does not contain special chars
+     */
+
     public void registerUser(View view) throws IOException {
         UserManager userManager = new UserManager();
         String pattern = "^[A-Za-z0-9]+$";

@@ -50,6 +50,10 @@ public class MemoEventsActivity extends AppCompatActivity {
         currentMemo = currentCalendar.getMemos().get(currentMemoIndex);
     }
 
+    /**
+     * This default view shows all the events that have the memo from currentMemo
+     */
+
     private void setRecyclerView() {
         this.recyclerView = findViewById(R.id.recyclerView_memoEvents);
         recyclerView.setHasFixedSize(true);
@@ -61,16 +65,12 @@ public class MemoEventsActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(this.layoutManager);
         recyclerView.setAdapter(this.adapter);
 
-        adapter.setOnClickListener(new GenericAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(int i) {
-                Intent newIntent = new Intent(MemoEventsActivity.this, ViewEventDetailsActivity.class);
-                Event currentEvent = currentUser.getEventsFromCalendar(currentCalendar).get(i);
-                newIntent.putExtra("currentCalendarIndex", currentCalendarIndex);
-                newIntent.putExtra("currentUser", currentUser);
-                newIntent.putExtra("currentEventIndex", i);
-                startActivity(newIntent);
-            }
+        adapter.setOnClickListener(i -> {
+            Intent newIntent = new Intent(MemoEventsActivity.this, ViewEventDetailsActivity.class);
+            newIntent.putExtra("currentCalendarIndex", currentCalendarIndex);
+            newIntent.putExtra("currentUser", currentUser);
+            newIntent.putExtra("currentEventIndex", i);
+            startActivity(newIntent);
         });
     }
 

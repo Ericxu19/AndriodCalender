@@ -61,6 +61,10 @@ public class ViewMemoDetailsActivity extends AppCompatActivity{
         descriptionView.setText(currentMemo.getDescription());
     }
 
+    /**
+     * sets up and displays memo making dialogue
+     */
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void openDialog(View view) {
         MemoCreationDialog dialog = new MemoCreationDialog();
@@ -70,6 +74,11 @@ public class ViewMemoDetailsActivity extends AppCompatActivity{
         dialog.setArguments(args);
         dialog.show(getSupportFragmentManager(), "memo creation dialog");
     }
+
+    /**
+     * Takes user to Linkmemoactivity
+     */
+
     public void linkEvent(View view){
         Intent intent = new Intent(this, LinkMemoActivity.class);
         intent.putExtra("currentUser", currentUser);
@@ -77,6 +86,7 @@ public class ViewMemoDetailsActivity extends AppCompatActivity{
         intent.putExtra("currentMemoIndex", currentMemoIndex);
         startActivity(intent);
     }
+
     public void viewEvents(View view){
         Intent intent = new Intent(this, MemoEventsActivity.class);
         intent.putExtra("currentUser", currentUser);
@@ -85,6 +95,10 @@ public class ViewMemoDetailsActivity extends AppCompatActivity{
         startActivity(intent);
     }
 
+    /**
+     * Removes memo from calendar and sends user to memolistactivity
+     */
+
     public void deleteMemo(View view) {
         currentUser.removeMemoFromCalendar(currentMemo, currentCalendar);
         Intent intent = new Intent(this, MemoListActivity.class);
@@ -92,6 +106,11 @@ public class ViewMemoDetailsActivity extends AppCompatActivity{
         intent.putExtra("currentCalendarIndex", currentCalendarIndex);
         startActivity(intent);
     }
+
+    /**
+     * This supports the back button for the activity
+     * @return boolean.
+     */
 
     public boolean onSupportNavigateUp() {
         Intent back = new Intent(this, MemoListActivity.class);

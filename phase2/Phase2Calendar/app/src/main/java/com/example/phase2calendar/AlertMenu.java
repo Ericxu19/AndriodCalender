@@ -23,6 +23,11 @@ public class AlertMenu extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
+    /**
+     * This supports the back button for the activity
+     * @return boolean.
+     */
+
     @Override
     public boolean onSupportNavigateUp() {
         Intent back = new Intent(this, MenuActivity.class);
@@ -30,6 +35,10 @@ public class AlertMenu extends AppCompatActivity {
         startActivity(back);
         return true;
     }
+
+    /**
+     * Takes the user to the alert creation activity
+     */
 
     public void newAlert(View view)
     {

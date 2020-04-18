@@ -36,6 +36,10 @@ public class SeriesListActivity extends AppCompatActivity implements EmptySeries
         setRecyclerView();
     }
 
+    /**
+     * Initializes field with current user info
+     */
+
     private void setCurrentUser() {
         Intent intent = getIntent();
         currentUser = (User) intent.getSerializableExtra("currentUser");
@@ -45,6 +49,10 @@ public class SeriesListActivity extends AppCompatActivity implements EmptySeries
         currentCalendarIndex = (int) intent.getSerializableExtra("currentCalendarIndex");
         currentCalendar = currentUser.getCalendar(currentCalendarIndex);
     }
+
+    /**
+     * This view shows all series
+     */
 
     private void setRecyclerView() {
         this.recyclerView = findViewById(R.id.recyclerView);
@@ -91,6 +99,12 @@ public class SeriesListActivity extends AppCompatActivity implements EmptySeries
         Series series = factory.createDayGapSeries(title, description, start, end, days, numEvents);
         currentUser.addSeriesToCalendar(series, currentCalendar);
     }
+
+    /**
+     * This supports the back button for the activity
+     * @return boolean.
+     */
+
 
     @Override
     public boolean onSupportNavigateUp() {

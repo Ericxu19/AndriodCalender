@@ -49,6 +49,7 @@ public class ViewEventFromMessageActivity extends AppCompatActivity {
         descriptionView.setText(currentEvent.getDescription());
     }
 
+
     public void chooseCalendar(View view) {
         Intent intent = new Intent(this, SelectCalendarToAddEventActivity.class);
         intent.putExtra("currentUser", currentUser);
@@ -56,6 +57,11 @@ public class ViewEventFromMessageActivity extends AppCompatActivity {
         intent.putExtra("senderName", senderName);
         startActivity(intent);
     }
+
+    /**
+     * This supports the back button for the activity
+     * @return boolean.
+     */
 
     @Override
     public boolean onSupportNavigateUp() {

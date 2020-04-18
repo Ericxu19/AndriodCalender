@@ -1,0 +1,49 @@
+﻿CSC207 Writeup
+
+
+Design Decision:
+
+
+Design Pattern: Observer,
+
+We implemented the Observer design pattern in our User and UserWriter Classes.
+In this implementation, we made the User class extend Observable and the UserWriter class implement Observer.
+
+
+Design Pattern: Factory,
+
+
+We implemented the Factory design pattern in our SeriesFactory class. This factory produces Series objects.
+
+
+We also used this design pattern to create different kinds of searchers, for example, “dateSearcher” and “memoSearcher”. These searchers all have a search method that allows us to search for events by their date or the memo attached to them. All these searchers implement the “EventSearcher” interface, and all have a search method.
+
+
+Dependency Injection,
+
+
+DateSearcher (addEvent()): We directly used Event event in our constructor to eliminate dependency on the Event class ( we could’ve passed in the Event parameters into addEvent(), created the Event object in addEvent(), and then added but this would violate the dependency injection). 
+
+
+Open-Closed Principle,
+We can see this principle in action by looking at the Attachment class and the Tag and Memo classes. Tag and Memo extend Attachment and if we want to add new Attachments in the future (open for extension), we wouldn’t need to change methods such as the addAttachment() method in Event (closed for modification) since the new Attachment will have to extend Attachment and hence work with this method which has a parameter of type Attachment.
+
+
+Major Improvements from Phase 1,
+We made an Android Application that incorporates our Java project from Phase 1 as a base to provide a clean user interface to users.
+
+
+We drastically cleaned up our Calendar class by decreasing the amount of code in it by using the android user interface.
+
+
+
+
+List of Features:
+GUI (Android App)
+Messages that allow a user to send a message and their events to other users. The other user can add the events received to their calendar.
+
+
+Special login message on holidays
+
+
+All the required features from phase 1

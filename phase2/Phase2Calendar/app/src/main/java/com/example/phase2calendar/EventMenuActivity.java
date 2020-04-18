@@ -67,6 +67,10 @@ public class EventMenuActivity extends AppCompatActivity implements EventCreatio
         });
     }
 
+    /**
+     * Setup and show event creation pop up
+     */
+
     public void openDialog(View view) {
         EventCreationDialog dialog = new EventCreationDialog();
         Bundle args = new Bundle();
@@ -74,12 +78,21 @@ public class EventMenuActivity extends AppCompatActivity implements EventCreatio
         dialog.show(getSupportFragmentManager(), "event creation dialog");
     }
 
+    /**
+     * Create new event, update event list (adapter)
+     */
+
     @Override
     public void createEvent(String title, String description, LocalDateTime startTime, LocalDateTime endTime) {
         Event event = new Event(title, description, startTime, endTime);
         currentUser.addEventToCalendar(event, currentCalendar);
         adapter.notifyItemInserted(currentUser.getEventsFromCalendar(currentCalendar).size()-1);
     }
+
+    /**
+     * This supports the back button for the activity
+     * @return boolean.
+     */
 
     @Override
     public boolean onSupportNavigateUp() {

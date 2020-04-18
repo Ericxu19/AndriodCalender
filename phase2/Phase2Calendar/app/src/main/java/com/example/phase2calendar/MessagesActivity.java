@@ -65,6 +65,12 @@ public class MessagesActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * This supports the back button for the activity
+     * @return boolean.
+     */
+
+
     @Override
     public boolean onSupportNavigateUp() {
         Intent back = new Intent(this, UserMenuActivity.class);

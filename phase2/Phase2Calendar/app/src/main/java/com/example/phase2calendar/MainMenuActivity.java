@@ -34,6 +34,12 @@ public class MainMenuActivity extends AppCompatActivity implements CalendarCreat
         setRecyclerView();
     }
 
+    /**
+     * Initializes activity with user info
+     *
+     * Userwriter is used to serialize user info
+     */
+
     public void setCurrentUser() {
         Intent intent = getIntent();
         currentUser = (User) intent.getSerializableExtra("currentUser");
@@ -41,6 +47,10 @@ public class MainMenuActivity extends AppCompatActivity implements CalendarCreat
         UserWriter userWriter = new UserWriter();
         currentUser.addObserver(userWriter);
     }
+
+    /**
+     * This default view shows the list of all calendars
+     */
 
     public void setRecyclerView() {
         this.recyclerView = findViewById(R.id.recyclerView);
@@ -62,10 +72,19 @@ public class MainMenuActivity extends AppCompatActivity implements CalendarCreat
         });
     }
 
+    /**
+     * show dialogue for calendar creation
+     */
+
+
     public void openDialog(View view) {
         CalendarCreationDialog dialog = new CalendarCreationDialog();
         dialog.show(getSupportFragmentManager(), "calendar creation dialog");
     }
+
+    /**
+     * Make a new calendar, update the current calendar list
+     */
 
     @Override
     public void createCalendar(String title, String description) {
@@ -73,6 +92,11 @@ public class MainMenuActivity extends AppCompatActivity implements CalendarCreat
         currentUser.addCalendar(cal);
         adapter.notifyItemInserted(currentUser.getCalendarsList().size()-1);
     }
+
+    /**
+     * This supports the back button for the activity
+     * @return boolean.
+     */
 
     @Override
     public boolean onSupportNavigateUp() {

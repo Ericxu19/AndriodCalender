@@ -62,6 +62,11 @@ public class ViewSeriesDetailsActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     * This supports the back button for the activity
+     * @return boolean.
+     */
+
     @Override
     public boolean onSupportNavigateUp() {
         Intent back = new Intent(this, SeriesListActivity.class);

@@ -20,6 +20,11 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
     }
 
+    /**
+     * Provides logic for button for login,
+     * Sends user to usermenuactivity iff login successful
+     */
+
     public void loginUser(View view) {
         EditText usernameField = findViewById(R.id.editText);
         EditText passwordField = findViewById(R.id.editText2);

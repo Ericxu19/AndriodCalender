@@ -52,6 +52,11 @@ public class ComposeMessageActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Supports send message button with logic,
+     * and takes user to messages activity if message send is valid
+     */
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void send(View view) {
         EditText editRecipient = findViewById(R.id.recipient_edit);
@@ -86,6 +91,11 @@ public class ComposeMessageActivity extends AppCompatActivity {
         }
 
     }
+
+    /**
+     * This supports the back button for the activity
+     * @return boolean.
+     */
 
     @Override
     public boolean onSupportNavigateUp() {
